@@ -5,11 +5,10 @@
  */
 package sisfacturacion;
 
-/**z|
+/**
  *
- * @author Porras
+ * @author pg300
  */
-public class Cliente {
-    private String nombre;
+public class Factura {
     
 }
