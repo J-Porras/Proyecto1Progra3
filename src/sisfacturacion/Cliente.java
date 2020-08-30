@@ -10,5 +10,6 @@ package sisfacturacion;
  * @author Porras
  */
 public class Cliente {
+    private String nombre;
     
 }
