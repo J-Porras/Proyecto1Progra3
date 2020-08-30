@@ -11,11 +11,19 @@ package sisfacturacion;
  */
 public class Producto {
     private String DescripcionProducto;
-    private double Codigo;
-   
+    private int Codigo;
     private double desc;
     private double precio;
 
+    public Producto(String DescripcionProducto, double desc, double precio) {
+        this.DescripcionProducto = DescripcionProducto;
+        this.desc = desc;
+        this.Codigo= (int) ((Math.random() * ((199999-100000) + 1)) + 100000);
+        this.precio = precio;
+    }
+    
+    
+    
     public String getDescripcionProducto() {
         return DescripcionProducto;
     }
@@ -28,7 +36,7 @@ public class Producto {
         return Codigo;
     }
 
-    public void setCodigo(double Codigo) {
+    public void setCodigo(int Codigo) {
         this.Codigo = Codigo;
     }
 
@@ -48,12 +56,7 @@ public class Producto {
         this.precio = precio;
     }
 
-    public Producto(String DescripcionProducto, double desc, double precio) {
-        this.DescripcionProducto = DescripcionProducto;
-        this.desc = desc;
-        this.Codigo= ((Math.random() * ((1999999-1000000  ) + 1)) + 1000000);
-        this.precio = precio;
-    }
+    
     
     
 }

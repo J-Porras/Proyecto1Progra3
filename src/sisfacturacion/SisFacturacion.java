@@ -15,7 +15,9 @@ public class SisFacturacion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Producto p = new Producto("Producto",1,1000);
+        System.out.println(p.getDescripcionProducto() + p.getDesc() + p.getPrecio());
+        System.out.println(p.getCodigo());
     }
     
 }
