@@ -11,5 +11,6 @@ package sisfacturacion;
  */
 public class Cliente {
     private String nombre;
+    private Identificacion ID;
     
 }
