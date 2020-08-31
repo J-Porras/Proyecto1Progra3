@@ -16,9 +16,7 @@ public class Ubicacion {
     private String detalle;
 
     public Ubicacion(int provincia, int canton, int distrito, String detalle) {
-        if (provincia > 0 && provincia < 8){            
-            this.provincia = provincia;
-        }
+        this.provincia = provincia;
         this.canton = canton;  
         this.distrito = distrito;
         this.detalle = detalle;
@@ -26,4 +24,4 @@ public class Ubicacion {
     
     
     
-}
+} 
