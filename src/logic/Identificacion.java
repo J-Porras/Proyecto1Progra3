@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sisfacturacion;
+package logic;
 
 /**
  * Esta clase será usada en la clase cliente y en la clase empresa

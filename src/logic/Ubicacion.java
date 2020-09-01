@@ -1,7 +1,7 @@
 /*
  * 
  */
-package sisfacturacion;
+package logic;
 
 /**
  * Administración de provincias, cantones y distritos.
