@@ -20,7 +20,11 @@ public class ControllerEmpresa implements ActionListener {
     public ControllerEmpresa(ViewEmpresa view,ModelEmpresa mod) {
         this.view = view;
         this.model = mod;
+        view.setModel(model);
+        view.setController(this);
     }
+
+ 
     
     public void actionPerformed(ActionEvent evento){
         try {
