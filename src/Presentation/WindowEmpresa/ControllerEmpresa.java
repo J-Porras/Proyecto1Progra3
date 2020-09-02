@@ -5,16 +5,41 @@
  */
 package Presentation.WindowEmpresa;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import logic.Empresa;
+
 /**
  *
  * @author Porras
  */
-public class ControllerEmpresa {
+public class ControllerEmpresa implements ActionListener {
     private ViewEmpresa  view;
+    private ModelEmpresa model;
 
-    public ControllerEmpresa(ViewEmpresa view) {
+    public ControllerEmpresa(ViewEmpresa view,ModelEmpresa mod) {
         this.view = view;
+        this.model = mod;
     }
     
+    public void actionPerformed(ActionEvent evento){
+        try {
+            String nombre = view.getTxtNomEmpresa().getText();
+            String id = view.getTxtCedJurid().getText();
+            String direccion = view.getTxtDireccion().getText();
+            int telefono = Integer.parseInt(view.getTxtNumTel().getText());
+            String pagweb = view.getTxtDirPagWeb().getText();
+            Empresa emp = new Empresa(nombre,direccion,telefono,id,pagweb);
+            
+            model.change(emp);
+            
+        } catch (Exception e) {
+            System.out.println("Error en entrada de datos");
+        }
+        
+        
+       
+        
+    }
     
 }

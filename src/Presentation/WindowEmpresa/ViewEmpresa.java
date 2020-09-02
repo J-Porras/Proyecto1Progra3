@@ -5,6 +5,8 @@
  */
 package Presentation.WindowEmpresa;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author Porras
@@ -14,8 +16,17 @@ public class ViewEmpresa extends javax.swing.JFrame {
     /**
      * Creates new form ViewEmpresa
      */
-    public ViewEmpresa() {
+    ControllerEmpresa control;
+    ModelEmpresa model;
+    
+    public ViewEmpresa(ControllerEmpresa _control,ModelEmpresa _model) {
+        control = _control;
+        model = _model;
         initComponents();
+    }
+
+    public ViewEmpresa() {
+        
     }
 
     /**
@@ -41,7 +52,7 @@ public class ViewEmpresa extends javax.swing.JFrame {
         txtDirPagWeb = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        InsertData = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -75,7 +86,12 @@ public class ViewEmpresa extends javax.swing.JFrame {
 
         jButton1.setText("Salir");
 
-        jButton2.setText("Insertar datos");
+        InsertData.setText("Insertar datos");
+        InsertData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertDataActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,7 +105,7 @@ public class ViewEmpresa extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jButton1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2))
+                            .addComponent(InsertData))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel1)
@@ -104,7 +120,7 @@ public class ViewEmpresa extends javax.swing.JFrame {
                                 .addComponent(txtCedJurid)
                                 .addComponent(txtNomEmpresa)
                                 .addComponent(txtDirPagWeb, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +150,7 @@ public class ViewEmpresa extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(InsertData))
                 .addGap(14, 14, 14))
         );
 
@@ -149,44 +165,34 @@ public class ViewEmpresa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedJuridActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void InsertDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertDataActionPerformed
+        this.control.actionPerformed(evt);
+    }//GEN-LAST:event_InsertDataActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewEmpresa().setVisible(true);
-            }
-        });
+
+    public JTextField getTxtCedJurid() {
+        return txtCedJurid;
+    }
+
+    public JTextField getTxtDirPagWeb() {
+        return txtDirPagWeb;
+    }
+
+    public JTextField getTxtDireccion() {
+        return txtDireccion;
+    }
+
+    public JTextField getTxtNomEmpresa() {
+        return txtNomEmpresa;
+    }
+
+    public JTextField getTxtNumTel() {
+        return txtNumTel;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton InsertData;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
