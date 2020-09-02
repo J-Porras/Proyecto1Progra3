@@ -12,6 +12,20 @@ package logic;
 public class Cliente {
     private String nombre;
     private Identificacion ID;
+    private int numTel;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Identificacion getID() {
+        return ID;
+    }
+
+    public int getNumTel() {
+        return numTel;
+    }
+    
     
     
 }

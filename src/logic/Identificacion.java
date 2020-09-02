@@ -24,5 +24,15 @@ public class Identificacion {
         }
         this.numero = numero;
     }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
      
+    
+    
 }

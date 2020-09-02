@@ -31,7 +31,63 @@ public abstract class Factura {
     public String getCodigo(){
          return "FA."+Codigo;
     } 
+
+    public double getTotal() {
+        return total;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public String getFormaDePago() {
+        return formaDePago;
+    }
+
+    public String getClaveElectronica() {
+        return ClaveElectronica;
+    }
+
+    public String getNumeroFacturaElectronica() {
+        return NumeroFacturaElectronica;
+    }
+
+    public int getPlazo() {
+        return Plazo;
+    }
+
+    public Fecha getFechaVencimiento() {
+        return fechaVencimiento;
+    }
+
+    public Fecha getDiaActual() {
+        return diaActual;
+    }
+
+    public Cliente getCliente1() {
+        return cliente1;
+    }
+
+    public Fecha getFecha() {
+        return fecha;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
         
+    
+    
+    
+    
+    
+    
+    
+    
     public abstract void  crearFactura();
     
     //definicion de constructor

@@ -47,7 +47,11 @@ public class FacturaPDF extends Factura{
             docPDF.add(new Paragraph(this.empresa.getDireccion()));
             docPDF.add(new Paragraph("Tel: "+this.empresa.getNumTelefono()));
             docPDF.add(new Paragraph(this.empresa.getPagWeb()));
+            docPDF.add(new Paragraph(" "));
             docPDF.add(new Paragraph("Cedula Juridica: " + this.empresa.getIDJurid()));
+            docPDF.add(new Paragraph("Factura Electronica No." + this.getNumeroFacturaElectronica()));
+            
+
             
             docPDF.close();
             writer.close();
@@ -61,5 +65,30 @@ public class FacturaPDF extends Factura{
             e.printStackTrace();
         }
     }
+    
+    public void dataClient(){
+        
+        try {
+            docPDF.open();
+            docPDF.add(new Paragraph("Datos del cliente"));
+            docPDF.add(new Paragraph(this.cliente1.getNombre()));
+            docPDF.add(new Paragraph((this.cliente1.getID().getNumero())));
+            docPDF.add(new Paragraph(this.cliente1.getNumTel()));
+            
+            docPDF.close();
+            
+        } 
+        catch (DocumentException e)
+        {
+            e.printStackTrace();
+        } 
+         /*catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }*/
+        
+        
+    }
+    
     
 }
