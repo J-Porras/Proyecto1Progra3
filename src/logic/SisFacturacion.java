@@ -17,7 +17,7 @@ public class SisFacturacion {
     public static void main(String[] args) {
         Producto p = new Producto("Producto",1,1000);
         System.out.println(p.getDescripcionProducto() + p.getDesc() + p.getPrecio());
-        System.out.println(p.getCodigo());
+        System.out.println((int)p.getCodigo());
     }
     
 }
