@@ -22,7 +22,9 @@ public class FacturaPDF extends Factura{
     public FacturaPDF(int Codigo, double total, int cantidad, String formaDePago, Fecha fechaVencimiento, Fecha diaActual, 
             String ClaveElectronica, String NumeroFacturaElectronica, int Plazo, Cliente cliente1, Fecha fecha, Producto producto, Empresa empresa)
     {
-        super(Codigo, total, cantidad, formaDePago, fechaVencimiento, diaActual, ClaveElectronica, NumeroFacturaElectronica, Plazo, cliente1, fecha, producto, empresa);
+        super(Codigo, total, cantidad, formaDePago, fechaVencimiento, diaActual, ClaveElectronica, NumeroFacturaElectronica, 
+                Plazo, cliente1, fecha, producto, empresa);
+        
         this.docPDF = new Document();
     }
     
