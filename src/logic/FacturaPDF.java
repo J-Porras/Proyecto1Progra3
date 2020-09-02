@@ -16,8 +16,50 @@ import com.itextpdf.text.Document;
  *
  * @author Porras
  */
-public class FacturaPDF {
-    private Empresa empresa;
-    private Cliente cliente;
+public class FacturaPDF extends Factura{
+    Document docPDF;
+
+    public FacturaPDF(int Codigo, double total, int cantidad, String formaDePago, Fecha fechaVencimiento, Fecha diaActual, 
+            String ClaveElectronica, String NumeroFacturaElectronica, int Plazo, Cliente cliente1, Fecha fecha, Producto producto, Empresa empresa)
+    {
+        super(Codigo, total, cantidad, formaDePago, fechaVencimiento, diaActual, ClaveElectronica, NumeroFacturaElectronica, Plazo, cliente1, fecha, producto, empresa);
+        this.docPDF = new Document();
+    }
+    
+
+   
+
+    @Override
+    public void crearFactura() {
+        try {
+            this.initPDF();
+        } catch (Exception e) {
+            
+        }
+    }
+    
+    public void initPDF(){
+        
+        try {
+            PdfWriter writer = PdfWriter.getInstance(docPDF, new FileOutputStream(this.getCodigo()));
+            docPDF.open();
+            docPDF.add(new Paragraph(this.empresa.getNomEmpresa()));
+            docPDF.add(new Paragraph(this.empresa.getDireccion()));
+            docPDF.add(new Paragraph("Tel: "+this.empresa.getNumTelefono()));
+            docPDF.add(new Paragraph(this.empresa.getPagWeb()));
+            docPDF.add(new Paragraph("Cedula Juridica: " + this.empresa.getIDJurid()));
+            
+            docPDF.close();
+            writer.close();
+        } 
+        catch (DocumentException e)
+        {
+            e.printStackTrace();
+        } 
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+    }
     
 }
