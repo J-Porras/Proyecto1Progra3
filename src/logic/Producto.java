@@ -7,7 +7,7 @@ package logic;
 
 /**
  *
- * @author pg300
+ * @author pgat3000
  */
 public class Producto {
     private String DescripcionProducto;
