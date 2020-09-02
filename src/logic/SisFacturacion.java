@@ -19,9 +19,7 @@ public class SisFacturacion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Producto p = new Producto("Producto",1000);
-        System.out.println(p.getDescripcionProducto()  + p.getPrecio());
-        System.out.println((int)p.getCodigo());
+      
          Model model = new Model();
         View view = new View();
         Controller controller= new Controller(model,view) ;
