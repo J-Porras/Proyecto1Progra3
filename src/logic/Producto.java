@@ -12,12 +12,10 @@ package logic;
 public class Producto {
     private String DescripcionProducto;
     private int Codigo;
-    private double desc;
     private double precio;
 
-    public Producto(String DescripcionProducto, double desc, double precio) {
+    public Producto(String DescripcionProducto, double precio) {
         this.DescripcionProducto = DescripcionProducto;
-        this.desc = desc;
         this.Codigo= (int) ((Math.random() * ((199999-100000) + 1)) + 100000);
         this.precio = precio;
     }
@@ -38,14 +36,6 @@ public class Producto {
 
     public void setCodigo(int Codigo) {
         this.Codigo = Codigo;
-    }
-
-    public double getDesc() {
-        return desc;
-    }
-
-    public void setDesc(double desc) {
-        this.desc = desc;
     }
 
     public double getPrecio() {
