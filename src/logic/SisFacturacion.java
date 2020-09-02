@@ -5,6 +5,10 @@
  */
 package logic;
 
+import Presentation.WindowProductos.Controller;
+import Presentation.WindowProductos.Model;
+import Presentation.WindowProductos.View;
+
 /**
  *
  * @author Porras
@@ -18,6 +22,10 @@ public class SisFacturacion {
         Producto p = new Producto("Producto",1000);
         System.out.println(p.getDescripcionProducto()  + p.getPrecio());
         System.out.println((int)p.getCodigo());
+         Model model = new Model();
+        View view = new View();
+        Controller controller= new Controller(model,view) ;
+        view.setVisible(true);
     }
     
 }
