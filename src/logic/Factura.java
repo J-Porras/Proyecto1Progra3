@@ -21,8 +21,9 @@ public abstract class Factura {
     private String NumeroFacturaElectronica;
     private int Plazo;
     public String getCodigo(){
-    return "FA-"+Codigo;} 
-    
+         return "FA-"+Codigo;
+    } 
+        
     public abstract void  crearFactura();
 
     public Factura( int Codigo, double total, int cantidad, Cliente cliente1, String formaDePago, Fecha diaActual, String ClaveElectronica, String NumeroFacturaElectronica) {
