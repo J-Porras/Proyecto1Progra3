@@ -19,14 +19,10 @@ public class ViewEmpresa extends javax.swing.JFrame {
     ControllerEmpresa control;
     ModelEmpresa model;
     
-    public ViewEmpresa(ControllerEmpresa _control,ModelEmpresa _model) {
-        control = _control;
-        model = _model;
-        initComponents();
-    }
+ 
 
     public ViewEmpresa() {
-        
+          initComponents();
     }
 
     /**
@@ -207,4 +203,14 @@ public class ViewEmpresa extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomEmpresa;
     private javax.swing.JTextField txtNumTel;
     // End of variables declaration//GEN-END:variables
+
+    void setModel(ModelEmpresa model) {
+       
+        this.model = model; 
+    }
+
+    void setController(ControllerEmpresa control) {
+       this.control = control;
+       
+    }
 }
