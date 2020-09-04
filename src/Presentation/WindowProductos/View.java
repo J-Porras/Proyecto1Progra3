@@ -7,7 +7,6 @@ package Presentation.WindowProductos;
 
 import java.util.Observable;
 import java.util.Observer;
-import logic.ProductoTableModel;
 
 
 

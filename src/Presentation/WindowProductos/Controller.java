@@ -31,13 +31,13 @@ public class Controller implements ActionListener, MouseListener  {
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-       String Descripcion;
+        String Descripcion;
         Descripcion = view.getNombre();
-      Double Precio = view.getPrice();
-      Producto p = new Producto(Descripcion,Precio);
-      model.change(p);
-      view.setNombre(" ");
-      view.setPrecio(" ");
+        Double Precio = view.getPrice();
+        Producto p = new Producto(Descripcion,Precio);
+        model.change(p);
+        view.setNombre(" ");
+        view.setPrecio(" ");
     }
 
     @Override

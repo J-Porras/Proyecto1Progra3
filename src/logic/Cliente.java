@@ -14,6 +14,18 @@ public class Cliente {
     private Identificacion ID;
     private int numTel;
 
+    public Cliente(String nombre, Identificacion ID, int numTel) {
+        this.nombre = nombre;
+        this.ID = ID;
+        this.numTel = numTel;
+    }
+
+    
+    
+    
+    
+    
+    
     public String getNombre() {
         return nombre;
     }
@@ -24,6 +36,18 @@ public class Cliente {
 
     public int getNumTel() {
         return numTel;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setID(Identificacion ID) {
+        this.ID = ID;
+    }
+
+    public void setNumTel(int numTel) {
+        this.numTel = numTel;
     }
     
     

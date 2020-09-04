@@ -18,8 +18,8 @@ public class Identificacion {
     public Identificacion(int tipo, String numero) {
         //constructor de la clase identificacion
         if(tipo == 1 || tipo == 2){
-           // 1 -> cedula fisica
-           // 2 -> cedula juridica
+           // 0 -> cedula fisica
+           // 1 -> cedula juridica
            this.tipo = tipo;
         }
         this.numero = numero;

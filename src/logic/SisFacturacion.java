@@ -5,15 +5,17 @@
  */
 package logic;
 
-//import Presentation.WindowProductos.Controller;
-//import Presentation.WindowProductos.Model;
-//import Presentation.WindowProductos.View;
+import Presentation.WindowProductos.Controller;
+import Presentation.WindowProductos.Model;
+import Presentation.WindowProductos.View;
 
 import Presentation.WindowEmpresa.ControllerEmpresa;
 import Presentation.WindowEmpresa.ModelEmpresa;
 import Presentation.WindowEmpresa.ViewEmpresa;
  
-import Presentation.WindowCliente.View;
+import Presentation.WindowCliente.ControllerCliente;
+import Presentation.WindowCliente.ModelCliente;
+import Presentation.WindowCliente.ViewCliente;
 
 /**
  *
@@ -26,6 +28,11 @@ public class SisFacturacion {
      */
     
     public static void main(String[] args) {
+        /*
+        ViewEmpresa view2 = new ViewEmpresa();
+        ModelEmpresa model1 = new ModelEmpresa();
+        ControllerEmpresa ctrl = new ControllerEmpresa(view2,model1);
+        view2.setVisible(true);*/
       
         /*
         Model model = new Model();
@@ -33,15 +40,15 @@ public class SisFacturacion {
         Controller controller= new Controller(model,view) ;
         view.setVisible(true);*/
         
+        /*
+       ModelCliente modelc = new ModelCliente();
+       ViewCliente viewc = new ViewCliente();
+       ControllerCliente controllerc = new ControllerCliente(modelc,viewc);
+       
+       viewc.setVisible(true);*/
         
         
-        ViewEmpresa view = new ViewEmpresa();
-        view.setVisible(true);
-
-        
-        
-        View view1 = new View();
-        view1.setVisible(true);
+    
     }
     
 }
