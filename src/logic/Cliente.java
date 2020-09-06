@@ -13,11 +13,13 @@ public class Cliente {
     private String nombre;
     private Identificacion ID;
     private int numTel;
+    private Ubicacion ubicacion;
 
-    public Cliente(String nombre, Identificacion ID, int numTel) {
+    public Cliente(String nombre, Identificacion ID, int numTel,Ubicacion ubicacion) {
         this.nombre = nombre;
         this.ID = ID;
         this.numTel = numTel;
+        this.ubicacion = ubicacion;
     }
 
     
@@ -34,6 +36,13 @@ public class Cliente {
         return ID;
     }
 
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
+
+    
+    
+    
     public int getNumTel() {
         return numTel;
     }

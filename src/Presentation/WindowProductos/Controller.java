@@ -17,7 +17,7 @@ import logic.Producto;
  *
  * @author pgat3000
  */
-public class Controller implements ActionListener, MouseListener  {
+public class Controller implements ActionListener{
     Model model;
     View view;
 
@@ -35,34 +35,9 @@ public class Controller implements ActionListener, MouseListener  {
         Descripcion = view.getNombre();
         Double Precio = view.getPrice();
         Producto p = new Producto(Descripcion,Precio);
-        model.change(p);
+        model.commit(p);
         view.setNombre(" ");
         view.setPrecio(" ");
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent arg0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mousePressed(MouseEvent arg0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent arg0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent arg0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseExited(MouseEvent arg0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

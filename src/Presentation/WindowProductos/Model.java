@@ -19,20 +19,24 @@ import logic.Producto;
  */
 public class Model extends  Observable {
   List<Producto> productos;
+  
    
-    @Override
-    public void addObserver(java.util.Observer o){
-        super.addObserver(o);
-        setChanged();
-        notifyObservers(null);
-    }
     public Model (){
         productos = new ArrayList<>();
     }
-    public void change (Producto p){
+  
+    
+    @Override
+    public void addObserver(java.util.Observer o){
+        super.addObserver(o);
+        notifyObservers(null);
+    }
+
+    
+    public void commit (Producto p){
         productos.add(p);
         setChanged();
-        notifyObservers(null);
+        notifyObservers();
     }
     
    

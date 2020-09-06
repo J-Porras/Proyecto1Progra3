@@ -40,13 +40,15 @@ public class SisFacturacion {
         Controller controller= new Controller(model,view) ;
         view.setVisible(true);*/
         
-        /*
+        
        ModelCliente modelc = new ModelCliente();
        ViewCliente viewc = new ViewCliente();
        ControllerCliente controllerc = new ControllerCliente(modelc,viewc);
        
-       viewc.setVisible(true);*/
+       viewc.setVisible(true);
+       
         
+
         
     
     }

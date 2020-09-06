@@ -19,11 +19,19 @@ public class View extends javax.swing.JFrame implements Observer {
     /**
      * Creates new form View
      */
+    
+    Model model;
+    Controller controller;
+    
     public View() {
         initComponents();
     }
-    Model model;
-    Controller controller;
+    
+    @Override
+    public void update(Observable updatedmOdel, Object param) {
+       ProductoTableModel p= new ProductoTableModel(model.productos);
+       this.TablaProducto.setModel(p);
+    }
 
     public void setModel(Model model) {
         this.model = model;
@@ -34,16 +42,18 @@ public class View extends javax.swing.JFrame implements Observer {
         this.controller = controller ;
         this.crear.addActionListener(controller);
     }
+    
     public String getNombre(){
-    return Nombre.getText();
+        return Nombre.getText();
     }
-     public  Double getPrice(){
+    
+    public  Double getPrice(){
         try{
-    return Double.parseDouble(precio.getText());
-      }
-     catch(Exception e){
-         return (double)-1 ;
-     }   
+            return Double.parseDouble(precio.getText());
+        }
+        catch(Exception e){
+            return (double)-1 ;
+        }   
     }
     public void setNombre(String n){
         Nombre.setText(n);
@@ -159,9 +169,9 @@ public class View extends javax.swing.JFrame implements Observer {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,38 +224,15 @@ public class View extends javax.swing.JFrame implements Observer {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+   /* public static void main(String args[]) {
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new View().setVisible(true);
             }
         });
-    }
-
+    }*/
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Nombre;
     private javax.swing.JTable TablaProducto;
@@ -259,11 +246,6 @@ public class View extends javax.swing.JFrame implements Observer {
     private javax.swing.JTextField precio;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void update(Observable updatedmOdel, Object param) {
-        ProductoTableModel p= new ProductoTableModel(model.productos);
-       this.TablaProducto.setModel(p);
-    }
-
+    
   
 }

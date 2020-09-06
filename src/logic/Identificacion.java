@@ -22,6 +22,9 @@ public class Identificacion {
            // 1 -> cedula juridica
            this.tipo = tipo;
         }
+        else
+            this.tipo = 3;
+        //3 = desconocido
         this.numero = numero;
     }
 

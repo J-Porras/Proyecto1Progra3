@@ -5,19 +5,24 @@ package logic;
 
 /**
  * Administración de provincias, cantones y distritos.
+ * //por motivos de complejidad los distritos y detalles han sido removidos 5/Septiembre
  * @author Joaquin
  */
 public class Ubicacion {
-    private int provincia; 
-    private int canton;
-    private int distrito;
-    private String detalle;
+    private String provincia; 
+    private String canton;
 
-    public Ubicacion(int provincia, int canton, int distrito, String detalle) {
+    public Ubicacion(String provincia, String canton) {
         this.provincia = provincia;
         this.canton = canton;  
-        this.distrito = distrito;
-        this.detalle = detalle;
+    }
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public String getCanton() {
+        return canton;
     }
     
     

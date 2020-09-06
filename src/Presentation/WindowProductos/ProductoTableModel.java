@@ -19,6 +19,7 @@ import logic.Producto;
 public class ProductoTableModel extends AbstractTableModel{
     List<Producto> p;
     private String[] NombresColumna={"Codigo","Descripcion","Precio"};
+    
     public ProductoTableModel(List<Producto> p) {
         this.p = p;
     }
@@ -34,7 +35,7 @@ public class ProductoTableModel extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int arg0, int arg1) {
-         if(arg1==0){
+        if(arg1==0){
             return round(p.get(arg0).getCodigo());
         }
         else if (arg1==1){
@@ -47,8 +48,8 @@ public class ProductoTableModel extends AbstractTableModel{
         return 0;
     }
     
-          public String getColumnName(int col) {
+    public String getColumnName(int col) {
       return NombresColumna[col];
-   }
+    }    
     
 }

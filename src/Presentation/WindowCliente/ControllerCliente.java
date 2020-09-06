@@ -7,6 +7,7 @@ package Presentation.WindowCliente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import logic.*;
 
 /**
  *
@@ -16,13 +17,17 @@ public class ControllerCliente implements ActionListener{
     ModelCliente model;
     ViewCliente view;
     
+    
+    
+    
     public ControllerCliente(ModelCliente model, ViewCliente view) {
         this.model = model;
         this.view = view;
+        model.setListCliente(logic.Service.getInstance().getListClientes());
         view.setModel(model);
         view.setController(this);
-        
     }
+    
     
     @Override
     public void actionPerformed(ActionEvent evento){
@@ -30,26 +35,29 @@ public class ControllerCliente implements ActionListener{
         switch(i){
             
             case 0:{
-                view.getComBoxCanton().setModel(model.cantones[0]);
+                
+                view.getComBoxCanton().setModel(model.getCantones()[0]);
                 break;
             }
              
             case 1:{
-                view.getComBoxCanton().setModel(model.cantones[1]);
+                view.getComBoxCanton().setModel(model.getCantones()[1]);
                 break;
             }
             
             default:{
-                view.getComBoxCanton().setModel(model.cantones[1]);
+                view.getComBoxCanton().setModel(model.getCantones()[0]);
                 break;
             }
         }
-       
     }
     
-    public void distritos(int provincia,int canton){
-        for (int i = 0; i < 10; i++) {
-            
-        }
+    public void addCliente(Cliente c){
+        logic.Service.getInstance().addCliente(c);
+        model.setListCliente(logic.Service.getInstance().getListClientes());
+        model.commit();
     }
+    
+    
+ 
 }
