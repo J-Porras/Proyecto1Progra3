@@ -33,11 +33,16 @@ public class Model extends  Observable {
     }
 
     
-    public void commit (Producto p){
-        productos.add(p);
+    public void commit (){
         setChanged();
         notifyObservers();
     }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
+    
+    
     
    
 }

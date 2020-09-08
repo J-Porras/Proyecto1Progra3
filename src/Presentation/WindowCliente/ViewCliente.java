@@ -61,7 +61,11 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
         return txt_ID;
     }
 
-    
+    public void setModel(ModelCliente model){
+        this.model = model; 
+        model.addObserver(this);//ERA ESTA
+    }
+        
     public void setComBoxCanton(JComboBox<String> comBoxCanton) {
         this.comBoxCanton = comBoxCanton;
     }
@@ -70,13 +74,6 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
         this.comBoxProvincia = comBoxProvincia;
     }
 
-    
-    
-    public void setModel(ModelCliente model){
-        this.model = model; 
-        model.addObserver(this);//ERA ESTA
-    }
-    
     public void setController(ControllerCliente controller) {
         this.controller = controller ;
         this.comBoxProvincia.addActionListener(controller);
@@ -109,6 +106,7 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
         jScrollPane1 = new javax.swing.JScrollPane();
         tableClientes = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,13 +152,13 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
 
         tableClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nombre", "Telefono", "Provincia", "Canton"
             }
         ));
         jScrollPane1.setViewportView(tableClientes);
@@ -168,6 +166,9 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Menu Clientes");
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setText("Tabla de Clientes");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -204,13 +205,19 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(233, 233, 233))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
@@ -284,6 +291,7 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableClientes;
     private javax.swing.JTextField txtNombre1;

@@ -6,13 +6,15 @@
 package Presentation.WindowEmpresa;
 
 
+import java.util.*;
 import javax.swing.JTextField;
+import logic.Empresa;
 
 /**
  *
  * @author Porras
  */
-public class ViewEmpresa extends javax.swing.JFrame{
+public class ViewEmpresa extends javax.swing.JFrame implements Observer{
 
     /**
      * Creates new form ViewEmpresa
@@ -23,11 +25,17 @@ public class ViewEmpresa extends javax.swing.JFrame{
  
 
     public ViewEmpresa() {
-          initComponents();
+        initComponents();
     }
+    
+    public void update(Observable updatedmOdel, Object param){
+        //no hay nada que actualizar porque la pantalla
+        //sera solo para entrada de datos de la empresa
+    }
+    
     void setModel(ModelEmpresa model) {
-       
         this.model = model; 
+        model.addObserver(this);
     }
 
     void setController(ControllerEmpresa control) {
@@ -180,7 +188,18 @@ public class ViewEmpresa extends javax.swing.JFrame{
     }//GEN-LAST:event_txtCedJuridActionPerformed
 
     private void InsertDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertDataActionPerformed
-        this.control.actionPerformed(evt);
+        if (txtNomEmpresa.getText().isEmpty() || txtDireccion.getText().isEmpty() ||  txtCedJurid.getText().isEmpty()
+                || txtDirPagWeb.getText().isEmpty() || txtNumTel.getText().isEmpty()) {
+            return;
+        }
+        String nomEmp = txtNomEmpresa.getText();
+        String dirEmp = txtDireccion.getText();
+        String ID = txtCedJurid.getText();
+        String pagweb = txtDirPagWeb.getText();
+        int tel = Integer.parseInt(txtNumTel.getText());
+        Empresa empresa = new Empresa(nomEmp,dirEmp,tel,ID,pagweb);
+        this.control.addEmpresa(empresa);
+        
     }//GEN-LAST:event_InsertDataActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed

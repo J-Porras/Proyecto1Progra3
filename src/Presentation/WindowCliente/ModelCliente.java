@@ -22,9 +22,7 @@ public class ModelCliente extends Observable{
     private List<Cliente> clientes;
     
     public ModelCliente(){
-        clientes = new ArrayList<>();
-        
-        
+        clientes = new ArrayList<>();   
         cantones = new ComboBoxModel[2];
         cantones[0] = new DefaultComboBoxModel(
                 new String[]{"Tibas","Moravia"}

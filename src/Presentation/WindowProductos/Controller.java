@@ -5,12 +5,8 @@
  */
 package Presentation.WindowProductos;
 
-import Presentation.WindowProductos.Model;
-import Presentation.WindowProductos.View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import logic.Producto;
 
 /**
@@ -31,13 +27,11 @@ public class Controller implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        String Descripcion;
-        Descripcion = view.getNombre();
-        Double Precio = view.getPrice();
-        Producto p = new Producto(Descripcion,Precio);
-        model.commit(p);
-        view.setNombre(" ");
-        view.setPrecio(" ");
     }
     
+    public void addProducto(Producto p){
+        logic.Service.getInstance().addProducto(p);
+        this.model.setProductos(logic.Service.getInstance().getListProductos());
+        this.model.commit();
+    }
 }

@@ -27,14 +27,12 @@ public class ControllerEmpresa implements ActionListener {
  
     
     public void actionPerformed(ActionEvent evento){
-        String nombre = view.getTxtNomEmpresa().getText();
-            String id = view.getTxtCedJurid().getText();
-            String direccion = view.getTxtDireccion().getText();
-            int telefono = Integer.parseInt(view.getTxtNumTel().getText());
-            String pagweb = view.getTxtDirPagWeb().getText();
-            Empresa emp = new Empresa(nombre,direccion,telefono,id,pagweb);
-            
-            model.change(emp);
     }
     
+    public void addEmpresa(Empresa p){
+        logic.Service.getInstance().setDataEmpresa(p);
+        this.model.setDataEmprsa(logic.Service.getInstance().getDataEmpresa());
+        this.model.commit();
+        
+    }
 }

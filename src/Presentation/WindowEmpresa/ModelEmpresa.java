@@ -11,6 +11,7 @@ package Presentation.WindowEmpresa;
  */
 
 import java.util.Observable;
+import java.util.Observer;
 import logic.Empresa;
 
 /**
@@ -23,12 +24,20 @@ public class ModelEmpresa extends Observable {
     public ModelEmpresa(){
         empresa = new Empresa();
     }
-    
-    public void change(Empresa emp){
-        empresa = emp;
-        System.out.println(emp);
-        setChanged();
+
+    @Override
+    public void addObserver(Observer o) {
+        super.addObserver(o); 
         notifyObservers(null);
+    }
+
+    public void commit(){
+        this.setChanged();
+        this.notifyObservers();
+    }
+    
+    public void setDataEmprsa(Empresa p){
+        this.empresa = p;
     }
     
     

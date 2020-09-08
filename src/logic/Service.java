@@ -5,8 +5,9 @@
  */
 package logic;
 
-import java.util.ArrayList;
+import sistema.data.Data;
 import java.util.List;
+
 
 /**
  *
@@ -15,12 +16,10 @@ import java.util.List;
 public class Service {
     
     private static Service instance;
-    List<Cliente> clientes;
-    List<Producto> productos;
+    Data data;
     
     private Service(){
-        clientes = new ArrayList<>();
-        productos = new ArrayList<>();
+        data = new Data();
     }
     
     public static Service getInstance(){
@@ -31,18 +30,27 @@ public class Service {
     }
     
     public List<Cliente> getListClientes(){
-        return this.clientes;
+        return this.data.getClientes();
     }
     
     public void addCliente(Cliente c){
-        this.clientes.add(c);
+        this.data.getClientes().add(c);
     }
     
     public List<Producto> getListProductos(){
-        return this.productos;
+        return this.data.getProductos();
     }
     
-    public void addCliente(Producto p){
-        this.productos.add(p);
+    public void addProducto(Producto p){
+        this.data.getProductos().add(p);
+    }
+    
+    public void setDataEmpresa(Empresa emp){
+        this.data.setDataEmpresa(emp);
+        
+    }
+    
+    public Empresa getDataEmpresa(){
+        return this.data.getDataEmpresa();
     }
 }

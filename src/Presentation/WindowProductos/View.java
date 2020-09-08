@@ -7,6 +7,7 @@ package Presentation.WindowProductos;
 
 import java.util.Observable;
 import java.util.Observer;
+import logic.Producto;
 
 
 
@@ -44,22 +45,22 @@ public class View extends javax.swing.JFrame implements Observer {
     }
     
     public String getNombre(){
-        return Nombre.getText();
+        return txtNombre.getText();
     }
     
     public  Double getPrice(){
         try{
-            return Double.parseDouble(precio.getText());
+            return Double.parseDouble(txtPrecio.getText());
         }
         catch(Exception e){
             return (double)-1 ;
         }   
     }
     public void setNombre(String n){
-        Nombre.setText(n);
+        txtNombre.setText(n);
     }
     public void setPrecio(String n){
-        precio.setText(n);
+        txtPrecio.setText(n);
     }
     //public void 
     /**
@@ -74,8 +75,8 @@ public class View extends javax.swing.JFrame implements Observer {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        Nombre = new javax.swing.JTextField();
-        precio = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         crear = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -94,9 +95,9 @@ public class View extends javax.swing.JFrame implements Observer {
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
         jLabel1.setText("Descripcion:");
 
-        Nombre.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
 
@@ -121,14 +122,14 @@ public class View extends javax.swing.JFrame implements Observer {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(24, 24, 24)
-                        .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(85, 85, 85)
                 .addComponent(crear)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -138,14 +139,14 @@ public class View extends javax.swing.JFrame implements Observer {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(crear)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         TablaProducto.setBackground(new java.awt.Color(255, 204, 204));
@@ -213,12 +214,21 @@ public class View extends javax.swing.JFrame implements Observer {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NombreActionPerformed
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
-        // TODO add your handling code here:
+        if (txtNombre.getText().isEmpty() || txtPrecio.getText().isEmpty() ) {
+            return; 
+        }
+        
+        String descripcion = txtNombre.getText();;
+        Double precio = Double.parseDouble(txtPrecio.getText());
+        Producto p = new Producto(descripcion,precio);
+         
+        this.controller.addProducto(p);
+        
     }//GEN-LAST:event_crearActionPerformed
 
     /**
@@ -234,7 +244,6 @@ public class View extends javax.swing.JFrame implements Observer {
     }*/
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Nombre;
     private javax.swing.JTable TablaProducto;
     private javax.swing.JButton crear;
     private javax.swing.JLabel jLabel1;
@@ -243,7 +252,8 @@ public class View extends javax.swing.JFrame implements Observer {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField precio;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 
     
