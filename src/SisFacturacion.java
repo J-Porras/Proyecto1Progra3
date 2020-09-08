@@ -5,13 +5,6 @@
  */
 
 
-import Presentation.WindowProductos.Controller;
-import Presentation.WindowProductos.Model;
-import Presentation.WindowProductos.View;
-
-import Presentation.WindowEmpresa.ControllerEmpresa;
-import Presentation.WindowEmpresa.ModelEmpresa;
-import Presentation.WindowEmpresa.ViewEmpresa;
  
 import Presentation.WindowCliente.ControllerCliente;
 import Presentation.WindowCliente.ModelCliente;
@@ -46,10 +39,6 @@ public class SisFacturacion {
        ControllerCliente controllerc = new ControllerCliente(modelc,viewc);
        
        viewc.setVisible(true);
-       
-        
-
-        
     
     }
     

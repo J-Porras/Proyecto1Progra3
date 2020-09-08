@@ -5,8 +5,7 @@
  */
 package Presentation.WindowCliente;
 
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import logic.Cliente;
@@ -35,7 +34,7 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
     }
     
     public ViewCliente() {
-        initComponents(); 
+        initComponents();
     }
 
     public JComboBox<String> getComBoxProvincia() {
@@ -75,6 +74,7 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
     
     public void setModel(ModelCliente model){
         this.model = model; 
+        model.addObserver(this);//ERA ESTA
     }
     
     public void setController(ControllerCliente controller) {
@@ -257,16 +257,11 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
         }
         int _numero = Integer.parseInt(txtNumTel.getText());
         Ubicacion u = new Ubicacion((String) comBoxProvincia.getSelectedItem(),(String)comBoxCanton.getSelectedItem());
-        Identificacion _id = new Identificacion(comBoxCanton.getSelectedIndex(),txt_ID.getText());
+        
+        Identificacion _id = new Identificacion(comBoxID.getSelectedIndex(),txt_ID.getText());
+        
         Cliente c = new Cliente(txtNombre1.getText(), _id, _numero,u);
-        //List<Cliente> list = new ArrayList<>();
-        //list.add(c);
-       // logic.Service.getInstance().addCliente(c);
-       // model.setListCliente(logic.Service.getInstance().getListClientes());
-        
-        //tableClientes.setModel(new ClienteTableModel(model.getListCliente()));
-        
-        
+
         this.controller.addCliente(c);
     }//GEN-LAST:event_btnAgregarActionPerformed
 

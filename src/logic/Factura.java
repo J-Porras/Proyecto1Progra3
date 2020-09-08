@@ -10,11 +10,12 @@ package logic;
  * @author pg300
  */
 public abstract class Factura {
-    protected int Codigo;
+    
+    protected int codigo;
     protected double total;
-    protected int cantidad;
+    protected int cantidadProducto;
     protected String formaDePago;
-    protected String ClaveElectronica;
+    protected String claveElectronica;
     protected String NumeroFacturaElectronica;
     protected int Plazo;
     
@@ -26,10 +27,28 @@ public abstract class Factura {
     protected Producto producto;
     protected Empresa empresa;
     
+    public abstract void  crearFactura();
     
+    //definicion de constructor
+    public Factura(int Codigo, double total, int cantidad, String formaDePago, Fecha fechaVencimiento, Fecha diaActual, String ClaveElectronica, String NumeroFacturaElectronica,
+            int Plazo, Cliente cliente1, Fecha fecha, Producto producto, Empresa empresa) {
+        this.codigo = Codigo;
+        this.total = total;
+        this.cantidadProducto = cantidadProducto;
+        this.formaDePago = formaDePago;
+        this.fechaVencimiento = fechaVencimiento;
+        this.diaActual = diaActual;
+        this.claveElectronica = ClaveElectronica;
+        this.NumeroFacturaElectronica = NumeroFacturaElectronica;
+        this.Plazo = Plazo;
+        this.cliente1 = cliente1;
+        this.fecha = fecha;
+        this.producto = producto;
+        this.empresa = empresa;
+    }
     
     public String getCodigo(){
-         return "FA."+Codigo;
+         return "FA."+codigo;
     } 
 
     public double getTotal() {
@@ -37,7 +56,7 @@ public abstract class Factura {
     }
 
     public int getCantidad() {
-        return cantidad;
+        return cantidadProducto;
     }
 
     public String getFormaDePago() {
@@ -45,7 +64,7 @@ public abstract class Factura {
     }
 
     public String getClaveElectronica() {
-        return ClaveElectronica;
+        return claveElectronica;
     }
 
     public String getNumeroFacturaElectronica() {
@@ -88,24 +107,6 @@ public abstract class Factura {
     
     
     
-    public abstract void  crearFactura();
     
-    //definicion de constructor
-    public Factura(int Codigo, double total, int cantidad, String formaDePago, Fecha fechaVencimiento, Fecha diaActual, String ClaveElectronica, String NumeroFacturaElectronica,
-            int Plazo, Cliente cliente1, Fecha fecha, Producto producto, Empresa empresa) {
-        this.Codigo = Codigo;
-        this.total = total;
-        this.cantidad = cantidad;
-        this.formaDePago = formaDePago;
-        this.fechaVencimiento = fechaVencimiento;
-        this.diaActual = diaActual;
-        this.ClaveElectronica = ClaveElectronica;
-        this.NumeroFacturaElectronica = NumeroFacturaElectronica;
-        this.Plazo = Plazo;
-        this.cliente1 = cliente1;
-        this.fecha = fecha;
-        this.producto = producto;
-        this.empresa = empresa;
-    }
     
 }

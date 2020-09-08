@@ -8,10 +8,8 @@ package Presentation.WindowCliente;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-import java.util.Set;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
 import logic.*;
 
 /**
@@ -25,6 +23,8 @@ public class ModelCliente extends Observable{
     
     public ModelCliente(){
         clientes = new ArrayList<>();
+        
+        
         cantones = new ComboBoxModel[2];
         cantones[0] = new DefaultComboBoxModel(
                 new String[]{"Tibas","Moravia"}
