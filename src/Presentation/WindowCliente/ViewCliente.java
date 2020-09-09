@@ -110,15 +110,19 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        comBoxProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San Jose", "Heredia" }));
+        comBoxProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San Jose", "Heredia", "Alajuela", "Cartago", "Guancaste", "Limon", "Puntarenas" }));
         comBoxProvincia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comBoxProvinciaActionPerformed(evt);
             }
         });
 
-        comBoxCanton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tibas" }));
         comBoxCanton.setPreferredSize(new java.awt.Dimension(100, 26));
+        comBoxCanton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comBoxCantonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Datos del cliente");
 
@@ -131,9 +135,9 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
             }
         });
 
-        jLabel3.setText("Identificacion");
+        jLabel3.setText("Identificación");
 
-        jLabel4.setText("Telefono");
+        jLabel4.setText("Teléfono");
 
         txtNombre1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +145,7 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
             }
         });
 
-        jLabel5.setText("Direccion");
+        jLabel5.setText("Dirección");
 
         btnAgregar.setText("Agregar Cliente");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +169,7 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
 
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Menu Clientes");
+        jLabel6.setText("Menú Clientes");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Tabla de Clientes");
@@ -198,7 +202,7 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(comBoxProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(comBoxCanton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(comBoxCanton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(83, 83, 83)
                                 .addComponent(btnAgregar)))
@@ -238,9 +242,9 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comBoxProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comBoxCanton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(comBoxCanton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comBoxProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(btnAgregar)))
                 .addGap(33, 33, 33))
@@ -275,6 +279,10 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
     private void comBoxProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comBoxProvinciaActionPerformed
            
     }//GEN-LAST:event_comBoxProvinciaActionPerformed
+
+    private void comBoxCantonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comBoxCantonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comBoxCantonActionPerformed
 
     
     

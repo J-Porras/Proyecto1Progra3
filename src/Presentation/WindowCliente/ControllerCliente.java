@@ -7,6 +7,7 @@ package Presentation.WindowCliente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ComboBoxModel;
 import logic.*;
 
 /**
@@ -32,21 +33,53 @@ public class ControllerCliente implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent evento){
         int i = view.getComBoxProvincia().getSelectedIndex();
+        ComboBoxModel cantones;
         switch(i){
             
             case 0:{
-                
-                view.getComBoxCanton().setModel(model.getCantones()[0]);
+                cantones = logic.Service.getInstance().getListCantones(i);
+                view.getComBoxCanton().setModel(cantones);
                 break;
             }
              
             case 1:{
-                view.getComBoxCanton().setModel(model.getCantones()[1]);
+                cantones = logic.Service.getInstance().getListCantones(i);
+                view.getComBoxCanton().setModel(cantones);
                 break;
             }
             
+            case 2:{
+                cantones = logic.Service.getInstance().getListCantones(i);
+                view.getComBoxCanton().setModel(cantones);
+                break;
+            }
+            
+            case 3:{
+                cantones = logic.Service.getInstance().getListCantones(i);
+                view.getComBoxCanton().setModel(cantones);
+                break;
+            }
+            
+            case 4:{
+                cantones = logic.Service.getInstance().getListCantones(i);
+                view.getComBoxCanton().setModel(cantones);
+                break;
+            }
+            
+            case 5:{
+                cantones = logic.Service.getInstance().getListCantones(i);
+                view.getComBoxCanton().setModel(cantones);
+                break;
+            }
+            
+            case 6:{
+                cantones = logic.Service.getInstance().getListCantones(i);
+                view.getComBoxCanton().setModel(cantones);
+                break;
+            }
             default:{
-                view.getComBoxCanton().setModel(model.getCantones()[0]);
+                cantones = logic.Service.getInstance().getListCantones(0);
+                view.getComBoxCanton().setModel(cantones);
                 break;
             }
         }

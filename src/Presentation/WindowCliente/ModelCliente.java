@@ -17,19 +17,14 @@ import logic.*;
  * @author Porras
  */
 public class ModelCliente extends Observable{
-    private ComboBoxModel[] cantones;
     private DefaultComboBoxModel cantonActual;
     private List<Cliente> clientes;
     
+    
+    
+    
     public ModelCliente(){
         clientes = new ArrayList<>();   
-        cantones = new ComboBoxModel[2];
-        cantones[0] = new DefaultComboBoxModel(
-                new String[]{"Tibas","Moravia"}
-        );
-        cantones[1] = new DefaultComboBoxModel(
-                new String[]{"Santo Domingo","San Pablo"}
-        );
     }
     
     
@@ -45,18 +40,13 @@ public class ModelCliente extends Observable{
         this.notifyObservers();
     }
     
-    public ComboBoxModel[] getCantones() {
-        return cantones;
-    }
+    
 
     public DefaultComboBoxModel getCantonActual() {
         return cantonActual;
     }
 
-    public void setCantones(ComboBoxModel[] cantones) {
-        this.cantones = cantones;
-    }
-
+    
     public void setCantonActual(DefaultComboBoxModel cantonActual) {
         this.cantonActual = cantonActual;
     }
