@@ -15,7 +15,17 @@ import java.awt.event.MouseListener;
  * @author Joaquin
  */
 public class ControllerFactura implements ActionListener, MouseListener{
+    ModelFactura model;
+    ViewFactura view;
+    
 
+    public ControllerFactura(ModelFactura facturas_model, ViewFactura facturas_view) {
+        this.model = facturas_model;
+        this.view = facturas_view;
+    }
+   public void show(){
+        view.setVisible(true);
+    } 
     @Override
     public void actionPerformed(ActionEvent e) {}
 

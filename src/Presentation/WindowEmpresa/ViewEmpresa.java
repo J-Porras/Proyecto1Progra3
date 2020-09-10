@@ -75,6 +75,7 @@ public class ViewEmpresa extends javax.swing.JFrame implements Observer{
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jLabel1.setText("Nombre de la empresa");
 
