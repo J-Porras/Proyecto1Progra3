@@ -8,6 +8,9 @@ package SistemaApp;
 
 
  
+import Presentation.Aplication.ControllerApp;
+import Presentation.Aplication.ModelApp;
+import Presentation.Aplication.ViewApp;
 import Presentation.WindowCliente.ControllerCliente;
 import Presentation.WindowCliente.ModelCliente;
 import Presentation.WindowCliente.ViewCliente;
@@ -25,25 +28,13 @@ public class SisFacturacion {
      */
     
     public static void main(String[] args) {
-        /*
-        ViewEmpresa view2 = new ViewEmpresa();
-        ModelEmpresa model1 = new ModelEmpresa();
-        ControllerEmpresa ctrl = new ControllerEmpresa(view2,model1);
-        view2.setVisible(true);*/
-      
-        /*
-        Model model = new Model();
-        View view = new View();
-        Controller controller= new Controller(model,view) ;
-        view.setVisible(true);*/
-        
-        
-       ModelCliente modelc = new ModelCliente();
-       ViewCliente viewc = new ViewCliente();
-       ControllerCliente controllerc = new ControllerCliente(modelc,viewc);
-       
-       viewc.setVisible(true);
-    
+      ControllerApp controller;
+      ModelApp model;
+      ViewApp view;
+      model = new ModelApp();
+      view = new ViewApp();
+      controller = new ControllerApp(model,view);
+      view.setVisible(true);
     }
     
 }

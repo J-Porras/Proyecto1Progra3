@@ -15,16 +15,16 @@ import logic.Producto;
  *
  * @author pgat3000
  */
-public class View extends javax.swing.JFrame implements Observer {
+public class ViewProducto extends javax.swing.JFrame implements Observer {
 
     /**
      * Creates new form View
      */
     
-    Model model;
-    Controller controller;
+    ModelProducto model;
+    ControllerProducto controller;
     
-    public View() {
+    public ViewProducto() {
         initComponents();
     }
     
@@ -34,12 +34,12 @@ public class View extends javax.swing.JFrame implements Observer {
        this.TablaProducto.setModel(p);
     }
 
-    public void setModel(Model model) {
+    public void setModel(ModelProducto model) {
         this.model = model;
         model.addObserver(this);
     }
 
-    public void setController(Controller controller) {
+    public void setController(ControllerProducto controller) {
         this.controller = controller ;
         this.crear.addActionListener(controller);
     }
@@ -83,7 +83,7 @@ public class View extends javax.swing.JFrame implements Observer {
         TablaProducto = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 204));
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 153));
@@ -228,7 +228,9 @@ public class View extends javax.swing.JFrame implements Observer {
         Producto p = new Producto(descripcion,precio);
          
         this.controller.addProducto(p);
-        
+        txtNombre.setText(" ");
+        txtPrecio.setText(" ");
+      
     }//GEN-LAST:event_crearActionPerformed
 
     /**
