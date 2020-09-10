@@ -74,7 +74,7 @@ public class ViewEmpresa extends javax.swing.JFrame implements Observer{
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Nombre de la empresa");
 
@@ -199,6 +199,11 @@ public class ViewEmpresa extends javax.swing.JFrame implements Observer{
         int tel = Integer.parseInt(txtNumTel.getText());
         Empresa empresa = new Empresa(nomEmp,dirEmp,tel,ID,pagweb);
         this.control.addEmpresa(empresa);
+        txtNomEmpresa.setText(" ");
+        txtDireccion.setText(" ");
+        txtCedJurid.setText(" ");
+        txtDirPagWeb.setText(" ");
+        txtNumTel.setText(" ");
         
     }//GEN-LAST:event_InsertDataActionPerformed
 

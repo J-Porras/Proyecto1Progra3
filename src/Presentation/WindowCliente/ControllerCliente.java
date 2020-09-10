@@ -29,7 +29,9 @@ public class ControllerCliente implements ActionListener{
         view.setController(this);
     }
     
-    
+     public void show(){
+        view.setVisible(true);
+    } 
     @Override
     public void actionPerformed(ActionEvent evento){
         int i = view.getComBoxProvincia().getSelectedIndex();
@@ -90,6 +92,8 @@ public class ControllerCliente implements ActionListener{
         model.setListCliente(logic.Service.getInstance().getListClientes());
         model.commit();
     }
+
+   
     
     
  

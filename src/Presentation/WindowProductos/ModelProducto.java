@@ -17,11 +17,11 @@ import logic.Producto;
  *
  * @author pgat3000
  */
-public class Model extends  Observable {
+public class ModelProducto extends  Observable {
   List<Producto> productos;
   
    
-    public Model (){
+    public ModelProducto (){
         productos = new ArrayList<>();
     }
   

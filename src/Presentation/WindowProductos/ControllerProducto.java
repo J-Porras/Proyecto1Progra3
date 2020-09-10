@@ -13,11 +13,11 @@ import logic.Producto;
  *
  * @author pgat3000
  */
-public class Controller implements ActionListener{
-    Model model;
-    View view;
+public class ControllerProducto implements ActionListener{
+    ModelProducto model;
+    ViewProducto view;
 
-    public Controller(Model model, View view) {
+    public ControllerProducto(ModelProducto model, ViewProducto view) {
         this.model = model;
         this.view = view;
         view.setModel(model);
@@ -34,4 +34,7 @@ public class Controller implements ActionListener{
         this.model.setProductos(logic.Service.getInstance().getListProductos());
         this.model.commit();
     }
+     public void show(){
+        view.setVisible(true);
+    } 
 }

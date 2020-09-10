@@ -35,4 +35,7 @@ public class ControllerEmpresa implements ActionListener {
         this.model.commit();
         
     }
+     public void show(){
+        view.setVisible(true);
+    } 
 }

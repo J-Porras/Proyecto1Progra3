@@ -108,7 +108,7 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         comBoxProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San Jose", "Heredia", "Alajuela", "Cartago", "Guancaste", "Limon", "Puntarenas" }));
         comBoxProvincia.addActionListener(new java.awt.event.ActionListener() {
