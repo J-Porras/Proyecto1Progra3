@@ -8,6 +8,8 @@ package Presentation.WindowProductos;
 import java.util.Observable;
 import java.util.Observer;
 import logic.Producto;
+import sistema.errors.DataException;
+import sistema.errors.EmptySpaceExcep;
 
 
 
@@ -30,7 +32,7 @@ public class ViewProducto extends javax.swing.JFrame implements Observer {
     
     @Override
     public void update(Observable updatedmOdel, Object param) {
-       ProductoTableModel p= new ProductoTableModel(model.productos);
+       ProductoTableModel p= new ProductoTableModel(model.getListProducts());
        this.TablaProducto.setModel(p);
     }
 
@@ -219,17 +221,32 @@ public class ViewProducto extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
-        if (txtNombre.getText().isEmpty() || txtPrecio.getText().isEmpty() ) {
-            return; 
-        }
-        
-        String descripcion = txtNombre.getText();;
+        try 
+        {
+            if (txtNombre.getText().isEmpty() || txtPrecio.getText().isEmpty() ) 
+            {
+                throw new EmptySpaceExcep();
+            }
+            String descripcion = txtNombre.getText();;
         Double precio = Double.parseDouble(txtPrecio.getText());
         Producto p = new Producto(descripcion,precio);
          
         this.controller.addProducto(p);
         txtNombre.setText(" ");
         txtPrecio.setText(" ");
+            
+        } 
+        catch(EmptySpaceExcep e){
+            e.infoError("Error",e,this);
+        }
+        catch (Exception e) {
+            DataException panic = new DataException();
+            panic.infoError("Error",panic,this);
+        }
+        
+
+        
+        
       
     }//GEN-LAST:event_crearActionPerformed
 

@@ -59,6 +59,8 @@ public class Cliente {
         this.numTel = numTel;
     }
     
-    
+    public boolean invalidCharacter(){
+       return nombre.matches(".*\\d.*");
+    }
     
 }

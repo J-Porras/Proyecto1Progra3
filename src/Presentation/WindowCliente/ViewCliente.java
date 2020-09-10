@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import logic.Cliente;
 import logic.Identificacion;
 import logic.Ubicacion;
+import sistema.errors.*;
 
 
 /**
@@ -262,18 +263,38 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
     }//GEN-LAST:event_txtNombre1ActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        try {
+            if (txtNombre1.getText().isEmpty() || txtNumTel.getText().isEmpty() || txt_ID.getText().isEmpty()
+                    || comBoxCanton.getSelectedItem() == null) 
+            {
+                throw new EmptySpaceExcep();
+            }
+            
+            int _numero = Integer.parseInt(txtNumTel.getText());
+            Ubicacion u = new Ubicacion((String) comBoxProvincia.getSelectedItem(),(String)comBoxCanton.getSelectedItem());
 
-        if (txtNombre1.getText().isEmpty() || txtNumTel.getText().isEmpty() || txt_ID.getText().isEmpty()) {
-            return;
+            Identificacion _id = new Identificacion(comBoxID.getSelectedIndex(),txt_ID.getText());
+
+            Cliente c = new Cliente(txtNombre1.getText(), _id, _numero,u);
+            
+            if (c.invalidCharacter()) {
+                throw new CharacterExcep();
+            }
+
+            this.controller.addCliente(c);
         }
-        int _numero = Integer.parseInt(txtNumTel.getText());
-        Ubicacion u = new Ubicacion((String) comBoxProvincia.getSelectedItem(),(String)comBoxCanton.getSelectedItem());
+        catch(EmptySpaceExcep e){   
+            e.infoError("Error", e,this);
+        }
+        catch(CharacterExcep e){
+            e.infoError("Error", e,this);
+        }
+        catch (Exception e) {   
+            DataException panic = new DataException();
+            panic.infoError("Error", panic,this);
+ 
+        }
         
-        Identificacion _id = new Identificacion(comBoxID.getSelectedIndex(),txt_ID.getText());
-        
-        Cliente c = new Cliente(txtNombre1.getText(), _id, _numero,u);
-
-        this.controller.addCliente(c);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void comBoxProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comBoxProvinciaActionPerformed

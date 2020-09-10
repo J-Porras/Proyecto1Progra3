@@ -26,50 +26,57 @@ public class ControllerApp {
         initOptions();
     }
     //factura
-   ModelFactura facturas_model;
-   ViewFactura facturas_view;
-   ControllerFactura facturas_controller;
-   //cliente
-   ModelCliente cliente_Moddel;
+    ModelFactura facturas_model;
+    ViewFactura facturas_view;
+    ControllerFactura facturas_controller;
+    //cliente
+    ModelCliente cliente_Moddel;
     ViewCliente cliente_View;
     ControllerCliente cliente_Controller;
-    //empresa
+     //empresa
     ControllerEmpresa empresa_controller;
     ModelEmpresa empresa_model;
     ViewEmpresa empresa_view;
-    //Productos
+     //Productos
     ControllerProducto producto_controller;
     ModelProducto producto_model;
     ViewProducto producto_view;
+    
+    
     public void initOptions() {
         cliente_Moddel =  new ModelCliente();
         cliente_View = new ViewCliente();
        
         cliente_Controller = new ControllerCliente(cliente_Moddel,cliente_View);    
-   //Porducto
+        //Porducto
         producto_model= new ModelProducto();
         producto_view = new ViewProducto();
         producto_controller = new ControllerProducto(producto_model,producto_view);
-   //empresa
+        //empresa
  
-    empresa_model= new ModelEmpresa() ;
- empresa_view= new    ViewEmpresa();  
-  empresa_controller= new ControllerEmpresa(empresa_view, empresa_model);
-  //factura
-   facturas_model= new ModelFactura() ;
-    facturas_view= new ViewFactura();
-   facturas_controller = new ControllerFactura(facturas_model,facturas_view) ;
+        empresa_model= new ModelEmpresa() ;
+        empresa_view= new    ViewEmpresa();  
+        empresa_controller= new ControllerEmpresa(empresa_view, empresa_model);
+        //factura
+        facturas_model= new ModelFactura() ;
+        facturas_view= new ViewFactura();
+    
+    facturas_controller = new ControllerFactura(facturas_model,facturas_view) ;
     }
-        public void EmpresaShow(){
+    
+    public void EmpresaShow(){
         this.empresa_controller.show();
     }
+        
     public void clienteShow(){
         this.cliente_Controller.show();
     }
-     public void ProductoShow(){
+    
+    public void ProductoShow(){
         this.producto_controller .show();
     }
-      public void FacturaShow(){
+     
+    public void FacturaShow(){
         this.facturas_controller.show();
     }
 }

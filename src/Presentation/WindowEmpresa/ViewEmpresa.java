@@ -9,6 +9,8 @@ package Presentation.WindowEmpresa;
 import java.util.*;
 import javax.swing.JTextField;
 import logic.Empresa;
+import sistema.errors.DataException;
+import sistema.errors.EmptySpaceExcep;
 
 /**
  *
@@ -189,22 +191,36 @@ public class ViewEmpresa extends javax.swing.JFrame implements Observer{
     }//GEN-LAST:event_txtCedJuridActionPerformed
 
     private void InsertDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertDataActionPerformed
-        if (txtNomEmpresa.getText().isEmpty() || txtDireccion.getText().isEmpty() ||  txtCedJurid.getText().isEmpty()
-                || txtDirPagWeb.getText().isEmpty() || txtNumTel.getText().isEmpty()) {
-            return;
+        try {
+            if (txtNomEmpresa.getText().isEmpty() || txtDireccion.getText().isEmpty() ||  txtCedJurid.getText().isEmpty()
+                || txtDirPagWeb.getText().isEmpty() || txtNumTel.getText().isEmpty()) 
+            {
+                throw new EmptySpaceExcep(); 
+            }
+            String nomEmp = txtNomEmpresa.getText();
+            String dirEmp = txtDireccion.getText();
+            String ID = txtCedJurid.getText();
+            String pagweb = txtDirPagWeb.getText();
+            int tel = Integer.parseInt(txtNumTel.getText());
+            Empresa empresa = new Empresa(nomEmp,dirEmp,tel,ID,pagweb);
+            this.control.addEmpresa(empresa);
+            txtNomEmpresa.setText(" ");
+            txtDireccion.setText(" ");
+            txtCedJurid.setText(" ");
+            txtDirPagWeb.setText(" ");
+            txtNumTel.setText(" ");
         }
-        String nomEmp = txtNomEmpresa.getText();
-        String dirEmp = txtDireccion.getText();
-        String ID = txtCedJurid.getText();
-        String pagweb = txtDirPagWeb.getText();
-        int tel = Integer.parseInt(txtNumTel.getText());
-        Empresa empresa = new Empresa(nomEmp,dirEmp,tel,ID,pagweb);
-        this.control.addEmpresa(empresa);
-        txtNomEmpresa.setText(" ");
-        txtDireccion.setText(" ");
-        txtCedJurid.setText(" ");
-        txtDirPagWeb.setText(" ");
-        txtNumTel.setText(" ");
+        catch(EmptySpaceExcep e){
+            e.infoError("Error",e,this);
+        }
+        catch (Exception e) {
+            DataException panic = new DataException();
+            panic.infoError("Error",panic,this);
+        }
+    
+        
+        
+        
         
     }//GEN-LAST:event_InsertDataActionPerformed
 

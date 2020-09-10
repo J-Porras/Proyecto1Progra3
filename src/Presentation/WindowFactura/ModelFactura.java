@@ -5,7 +5,9 @@
  */
 package Presentation.WindowFactura;
 
+import java.util.List;
 import java.util.Observable;
+import logic.Producto;
 
 /**
  *
@@ -13,8 +15,10 @@ import java.util.Observable;
  */
 public class ModelFactura extends Observable {
     
+    List<Producto> listProductos;
+    
     public ModelFactura (){
-        
+        listProductos = logic.Service.getInstance().getListProductos();
     }  
     
     @Override
@@ -31,5 +35,14 @@ public class ModelFactura extends Observable {
     public void setFacturas() {
         
     }
+
+    public List<Producto> getListProductos() {
+        return listProductos;
+    }
+
+    public void setListProductos(List<Producto> listProductos) {
+        this.listProductos = listProductos;
+    }
+    
     
 }

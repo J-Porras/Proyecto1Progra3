@@ -18,7 +18,7 @@ import logic.Producto;
  * @author pgat3000
  */
 public class ModelProducto extends  Observable {
-  List<Producto> productos;
+   private List<Producto> productos;
   
    
     public ModelProducto (){
@@ -42,7 +42,9 @@ public class ModelProducto extends  Observable {
         this.productos = productos;
     }
     
-    
+    public List<Producto> getListProducts(){
+        return this.productos;
+    }
     
    
 }

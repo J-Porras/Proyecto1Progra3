@@ -8,7 +8,6 @@ package Presentation.WindowCliente;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import logic.*;
 
@@ -18,10 +17,7 @@ import logic.*;
  */
 public class ModelCliente extends Observable{
     private DefaultComboBoxModel cantonActual;
-    private List<Cliente> clientes;
-    
-    
-    
+    private List<Cliente> clientes; 
     
     public ModelCliente(){
         clientes = new ArrayList<>();   
@@ -33,14 +29,11 @@ public class ModelCliente extends Observable{
         super.addObserver(o);
         notifyObservers(null);
     }
-    
-    
+
     public void commit(){
         this.setChanged();
         this.notifyObservers();
     }
-    
-    
 
     public DefaultComboBoxModel getCantonActual() {
         return cantonActual;

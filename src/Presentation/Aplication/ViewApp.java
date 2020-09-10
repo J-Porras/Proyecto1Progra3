@@ -24,11 +24,11 @@ public class ViewApp extends javax.swing.JFrame implements java.util.Observer {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        ClientesB = new javax.swing.JButton();
-        FacturasB = new javax.swing.JButton();
-        ProductosB = new javax.swing.JButton();
-        EmpresaB = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
+        btnFacturas = new javax.swing.JButton();
+        btnProductos = new javax.swing.JButton();
+        btnEmpresa = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,41 +46,45 @@ public class ViewApp extends javax.swing.JFrame implements java.util.Observer {
         jPanel1.setBackground(new java.awt.Color(153, 255, 255));
         jPanel1.setOpaque(false);
 
-        ClientesB.setBackground(new java.awt.Color(255, 255, 255));
-        ClientesB.setText("Clientes");
-        ClientesB.addActionListener(new java.awt.event.ActionListener() {
+        btnClientes.setBackground(new java.awt.Color(255, 255, 255));
+        btnClientes.setText("Clientes");
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClientesBActionPerformed(evt);
+                btnClientesActionPerformed(evt);
             }
         });
 
-        FacturasB.setBackground(new java.awt.Color(255, 255, 255));
-        FacturasB.setText("Facturas");
-        FacturasB.addActionListener(new java.awt.event.ActionListener() {
+        btnFacturas.setBackground(new java.awt.Color(255, 255, 255));
+        btnFacturas.setText("Facturas");
+        btnFacturas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FacturasBActionPerformed(evt);
+                btnFacturasActionPerformed(evt);
             }
         });
 
-        ProductosB.setBackground(new java.awt.Color(255, 255, 255));
-        ProductosB.setText("Productos");
-        ProductosB.setActionCommand("Productos");
-        ProductosB.addActionListener(new java.awt.event.ActionListener() {
+        btnProductos.setBackground(new java.awt.Color(255, 255, 255));
+        btnProductos.setText("Productos");
+        btnProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProductosBActionPerformed(evt);
+                btnProductosActionPerformed(evt);
             }
         });
 
-        EmpresaB.setBackground(new java.awt.Color(255, 255, 255));
-        EmpresaB.setText("Empresa");
-        EmpresaB.addActionListener(new java.awt.event.ActionListener() {
+        btnEmpresa.setBackground(new java.awt.Color(255, 255, 255));
+        btnEmpresa.setText("Empresa");
+        btnEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmpresaBActionPerformed(evt);
+                btnEmpresaActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Salir");
+        btnExit.setBackground(new java.awt.Color(255, 255, 255));
+        btnExit.setText("Salir");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -90,17 +94,17 @@ public class ViewApp extends javax.swing.JFrame implements java.util.Observer {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ClientesB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                        .addComponent(ProductosB))
+                        .addComponent(btnProductos))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(EmpresaB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(FacturasB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81))
         );
         jPanel1Layout.setVerticalGroup(
@@ -108,14 +112,14 @@ public class ViewApp extends javax.swing.JFrame implements java.util.Observer {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmpresaB)
-                    .addComponent(FacturasB))
+                    .addComponent(btnEmpresa)
+                    .addComponent(btnFacturas))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ClientesB)
-                    .addComponent(ProductosB))
+                    .addComponent(btnClientes)
+                    .addComponent(btnProductos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnExit)
                 .addGap(5, 5, 5))
         );
 
@@ -165,28 +169,34 @@ public class ViewApp extends javax.swing.JFrame implements java.util.Observer {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ClientesBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientesBActionPerformed
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
        this.controller.clienteShow();
-    }//GEN-LAST:event_ClientesBActionPerformed
+    }//GEN-LAST:event_btnClientesActionPerformed
 
-    private void ProductosBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductosBActionPerformed
+    private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
          this.controller.ProductoShow();
-    }//GEN-LAST:event_ProductosBActionPerformed
+    }//GEN-LAST:event_btnProductosActionPerformed
 
-    private void FacturasBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FacturasBActionPerformed
+    private void btnFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturasActionPerformed
         this.controller.FacturaShow();
-    }//GEN-LAST:event_FacturasBActionPerformed
+    }//GEN-LAST:event_btnFacturasActionPerformed
 
-    private void EmpresaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpresaBActionPerformed
+    private void btnEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpresaActionPerformed
         this.controller.EmpresaShow();
-    }//GEN-LAST:event_EmpresaBActionPerformed
+    }//GEN-LAST:event_btnEmpresaActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        
+    }//GEN-LAST:event_btnExitActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ClientesB;
-    private javax.swing.JButton EmpresaB;
-    private javax.swing.JButton FacturasB;
-    private javax.swing.JButton ProductosB;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnEmpresa;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnFacturas;
+    private javax.swing.JButton btnProductos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
@@ -216,6 +226,7 @@ public class ViewApp extends javax.swing.JFrame implements java.util.Observer {
 
     
     @Override
-   public void update(java.util.Observable updatedModel,Object parametros){
-   }
+    public void update(java.util.Observable updatedModel,Object parametros){
+        
+    }
 }
