@@ -14,8 +14,8 @@ import logic.Producto;
  * @author pgat3000
  */
 public class ControllerProducto implements ActionListener{
-    ModelProducto model;
-    ViewProducto view;
+   private  ModelProducto model;
+    private ViewProducto view;
 
     public ControllerProducto(ModelProducto model, ViewProducto view) {
         this.model = model;

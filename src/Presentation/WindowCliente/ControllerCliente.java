@@ -15,8 +15,8 @@ import logic.*;
  * @author Porras
  */
 public class ControllerCliente implements ActionListener{
-    ModelCliente model;
-    ViewCliente view;
+    private ModelCliente model;
+   private ViewCliente view;
     
     
     
