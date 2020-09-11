@@ -14,8 +14,8 @@ import Presentation.WindowProductos.ModelProducto;
 import Presentation.WindowProductos.ViewProducto;
 
 public class ControllerApp {
-    ModelApp model;
-    ViewApp view;
+    private  ModelApp model;
+    private ViewApp view;
 
     public ControllerApp(ModelApp model, ViewApp view) {
         this.model = model;
