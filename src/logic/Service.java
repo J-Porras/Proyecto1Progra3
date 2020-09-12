@@ -7,7 +7,6 @@ package logic;
 
 import sistema.data.Data;
 import java.util.List;
-import javax.swing.ComboBoxModel;
 
 
 /**
@@ -55,7 +54,11 @@ public class Service {
         return this.data.getDataEmpresa();
     }
     
-    public ComboBoxModel getListCantones(int i){
-        return this.data.getListCantones(i);
+    public Cantones getListCantones(){
+        return this.data.getCantones();
+    }
+    
+    public Provincias getListProvincias(){
+        return this.data.getProvincias();
     }
 }

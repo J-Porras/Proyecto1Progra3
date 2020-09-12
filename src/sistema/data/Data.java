@@ -6,24 +6,30 @@
 package sistema.data;
 
 import java.util.*;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import logic.Cantones;
 import logic.Cliente;
 import logic.Empresa;
 import logic.Factura;
 import logic.Producto;
+import logic.Provincias;
 
 /**
  *
  * @author Porras
  */
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Data {
     private List<Cliente> clientes;
     private List<Producto> productos;
     private Empresa empresa;
     private List<Factura> facturas;
-    private ComboBoxModel[] cantones;
-    
+    private Cantones cantones;
+    private Provincias provincias;
     
     
 
@@ -32,38 +38,8 @@ public class Data {
         this.productos = new ArrayList<>();
         this.empresa = new Empresa();
         this.facturas = new ArrayList<>();
-        
-        cantones = new ComboBoxModel[7];
-        cantones[0] = new DefaultComboBoxModel(
-                new String[]{"Tibas","Moravia","San Jose","Escazu","Desamparados","Puriscal","Tarrazu","Aserri",
-                "Mora","Goicoechea","Goicoechea","Alajuelita","Vazquez de Coronado","Acosta","Montes de Oca",
-                "Turrubares","Dota","Curridabat","Perez Zeledon","Leon Cortes Castro"}
-        );
-        cantones[1] = new DefaultComboBoxModel(
-                new String[]{"Santo Domingo","San Pablo","Heredia","Barva","Santa Barbara","San Rafael","San Isidrio",
-                "Belen","Flores","Sarapiqui"}
-        );
-        
-        cantones[2] = new DefaultComboBoxModel(
-                new String[]{"Alajuela","San Ramon","Grecia","San Mateo","Atenas","Naranjo","Palmares","Poas","Orotina",
-                "San Carlos","Zarcero","Sarchi","Upala","Los Chiles","Guatuso","Río Cuarto"}       
-        );
-        
-        cantones[3] = new DefaultComboBoxModel(
-                new String[]{"Cartago","Paraiso","La Union","Jimenez","Turrialba","Alvarado","Oreamuno","El Guarco"}     
-        );
-        
-        cantones[4] = new DefaultComboBoxModel(
-                new String[]{"Liberia","Nicoya","Santa Cruz","Bagaces","Carrillo","Caañas",
-                "Abangares","Tilaran","Nandayure","La Cruz","Hojancha"}
-        );
-         cantones[5] = new DefaultComboBoxModel(
-                 new String[]{"Limon","Pococi","Siquirres","Talamanca","Matina","Guacimo"}
-         );
-         cantones[6] = new DefaultComboBoxModel(
-                 new String[]{"Puntarenas","Esparza","Buenos Aires","Montes de Oro","Osa",
-                 "Quepos","Golfito","Coto Brus","Parrita","Corredores","Garabito"}
-         );
+        this.cantones = new Cantones();
+        this.provincias = new Provincias();
     }
 
     public List<Cliente> getClientes() {
@@ -82,6 +58,16 @@ public class Data {
         return facturas;
     }
     
+    public Cantones getCantones() {
+        return cantones;
+    }
+
+    public Provincias getProvincias() {
+        return provincias;
+    }
+    
+    
+    
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
@@ -97,8 +83,8 @@ public class Data {
     public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
     }
+
     
-    public ComboBoxModel getListCantones(int i){
-        return cantones[i];
-    }
+    
+    
 }

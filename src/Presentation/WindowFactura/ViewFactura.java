@@ -24,7 +24,8 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
     
     public ViewFactura() {
         initComponents();
-        //this.tableProductos.setModel(new ProductoTableModel(model.getListProductos()));
+       
+        
     }
     
     public void setModel(ModelFactura model){
@@ -35,6 +36,8 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
     public void setController(ControllerFactura controller){
         this.controller = controller;
     }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -117,6 +120,11 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
             }
         ));
         jScrollPane1.setViewportView(tableProductos);
+        if (tableProductos.getColumnModel().getColumnCount() > 0) {
+            tableProductos.getColumnModel().getColumn(0).setHeaderValue("Codigo");
+            tableProductos.getColumnModel().getColumn(1).setHeaderValue("Descripcion");
+            tableProductos.getColumnModel().getColumn(2).setHeaderValue("Precio");
+        }
 
         jButton2.setText("Finalizar Factura");
 
