@@ -3,11 +3,18 @@
  */
 package logic;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
 /**
  * Administración de provincias, cantones y distritos.
  * //por motivos de complejidad los distritos y detalles han sido removidos 5/Septiembre
  * @author Joaquin
  */
+
+
+@XmlAccessorType(XmlAccessType.FIELD)
+
 public class Ubicacion {
     private String provincia; 
     private String canton;

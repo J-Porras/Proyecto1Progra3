@@ -51,7 +51,7 @@ public class FacturaPDF extends Factura{
             docPDF.add(new Paragraph(this.empresa.getPagWeb()));
             docPDF.add(new Paragraph(" "));
             docPDF.add(new Paragraph("Cedula Juridica: " + this.empresa.getIDJurid()));
-            docPDF.add(new Paragraph("Factura Electronica No." + this.getNumeroFacturaElectronica()));
+            //docPDF.add(new Paragraph("Factura Electronica No." + this.getNumeroFacturaElectronica()));
             
 
             
