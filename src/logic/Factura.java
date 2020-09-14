@@ -5,28 +5,33 @@
  */
 package logic;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
 /**
  *
  * @author pg300
  */
+
+@XmlAccessorType(XmlAccessType.FIELD)
+//para serializar campos
 public abstract class Factura {
     
     protected int codigo;
     protected double total;
     protected int cantidadProducto;
     protected String formaDePago;
-    protected String claveElectronica;
-    protected String NumeroFacturaElectronica;
-    protected int Plazo;
+    //protected String claveElectronica;
+    //protected String NumeroFacturaElectronica;
+    //protected int Plazo;
     
     // atributos no primitivos
     protected Fecha fechaVencimiento;
     protected Fecha diaActual;
     protected Cliente cliente1;
-    protected Fecha fecha;
-    protected Producto producto;
     protected Empresa empresa;
-    
+    //Lista Productos??
+    protected Producto producto;
     public abstract void  crearFactura();
     
     //definicion de constructor
@@ -34,18 +39,21 @@ public abstract class Factura {
             int Plazo, Cliente cliente1, Fecha fecha, Producto producto, Empresa empresa) {
         this.codigo = Codigo;
         this.total = total;
-        this.cantidadProducto = cantidadProducto;
+        this.cantidadProducto = cantidad;
         this.formaDePago = formaDePago;
         this.fechaVencimiento = fechaVencimiento;
         this.diaActual = diaActual;
-        this.claveElectronica = ClaveElectronica;
-        this.NumeroFacturaElectronica = NumeroFacturaElectronica;
-        this.Plazo = Plazo;
+        //this.claveElectronica = ClaveElectronica;
+        //this.NumeroFacturaElectronica = NumeroFacturaElectronica;
+       // this.Plazo = Plazo;
         this.cliente1 = cliente1;
-        this.fecha = fecha;
+        //this.fecha = fecha;
         this.producto = producto;
         this.empresa = empresa;
     }
+    
+    
+    
     
     public String getCodigo(){
          return "FA."+codigo;
@@ -62,18 +70,20 @@ public abstract class Factura {
     public String getFormaDePago() {
         return formaDePago;
     }
-
+    /*
     public String getClaveElectronica() {
         return claveElectronica;
-    }
+    }*/
+    
+    /*
 
     public String getNumeroFacturaElectronica() {
         return NumeroFacturaElectronica;
-    }
+    }*/
 
-    public int getPlazo() {
+    /*public int getPlazo() {
         return Plazo;
-    }
+    }*/
 
     public Fecha getFechaVencimiento() {
         return fechaVencimiento;
@@ -87,9 +97,10 @@ public abstract class Factura {
         return cliente1;
     }
 
+    /*
     public Fecha getFecha() {
         return fecha;
-    }
+    }*/
 
     public Producto getProducto() {
         return producto;

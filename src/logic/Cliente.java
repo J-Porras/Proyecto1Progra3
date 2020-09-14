@@ -5,16 +5,28 @@
  */
 package logic;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlIDREF;
+
 /**z|
  *
  * @author Porras
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
+    @XmlID//Identficador unico de objeto
     private String nombre;
-    private Identificacion ID;
+    
     private int numTel;
+    
+    //@XmlIDREF
     private Ubicacion ubicacion;
-
+    private Identificacion ID;
+    
+    
+    
     public Cliente(String nombre, Identificacion ID, int numTel,Ubicacion ubicacion) {
         this.nombre = nombre;
         this.ID = ID;

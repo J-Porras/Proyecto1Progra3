@@ -41,7 +41,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -98,7 +98,7 @@
               <Font name="Franklin Gothic Medium Cond" size="30" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Sistema  Facturaci&#xf3;n EASY"/>
+            <Property name="text" type="java.lang.String" value="Sistema Facturaci&#xf3;n EASY"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -118,7 +118,7 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="btnClientes" min="-2" pref="89" max="-2" attributes="0"/>
-                              <EmptySpace pref="76" max="32767" attributes="0"/>
+                              <EmptySpace pref="101" max="32767" attributes="0"/>
                               <Component id="btnProductos" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">

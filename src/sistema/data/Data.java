@@ -24,6 +24,8 @@ import logic.Provincias;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Data {
+    
+    
     private List<Cliente> clientes;
     private List<Producto> productos;
     private Empresa empresa;
