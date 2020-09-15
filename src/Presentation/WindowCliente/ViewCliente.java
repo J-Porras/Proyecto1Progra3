@@ -280,8 +280,7 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
             if (c.invalidCharacter()) {
                 throw new CharacterExcep();
             }
-            else 
-                this.controller.addCliente(c);
+            this.controller.addCliente(c);
        
             
         }
@@ -291,6 +290,7 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
         catch(CharacterExcep e){
             e.infoError("Error", e,this);
         }
+        
         catch (Exception e) {   
             DataException panic = new DataException();
             panic.infoError("Error", panic,this);

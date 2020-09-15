@@ -32,7 +32,7 @@ public class Data {
     private List<Factura> facturas;
     private Cantones cantones;
     private Provincias provincias;
-    
+   
     
 
     public Data() {
@@ -47,7 +47,8 @@ public class Data {
     public List<Cliente> getClientes() {
         return clientes;
     }
-
+    
+    
     public List<Producto> getProductos() {
         return productos;
     }

@@ -5,13 +5,17 @@
  */
 package logic;
 
+import javax.xml.bind.annotation.XmlID;
+
 /**
  *
  * @author pgat3000
  */
 public class Producto {
-    private String DescripcionProducto;
+    @XmlID
     private int Codigo;
+    
+    private String DescripcionProducto;
     private double precio;
 
     public Producto(String DescripcionProducto, double precio) {

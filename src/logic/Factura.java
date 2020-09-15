@@ -7,6 +7,8 @@ package logic;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlIDREF;
 
 /**
  *
@@ -16,8 +18,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.FIELD)
 //para serializar campos
 public abstract class Factura {
-    
+    @XmlID
     protected int codigo;
+    
+    
     protected double total;
     protected int cantidadProducto;
     protected String formaDePago;
@@ -28,10 +32,15 @@ public abstract class Factura {
     // atributos no primitivos
     protected Fecha fechaVencimiento;
     protected Fecha diaActual;
+    @XmlIDREF
     protected Cliente cliente1;
+    @XmlIDREF
     protected Empresa empresa;
     //Lista Productos??
+    @XmlIDREF
     protected Producto producto;
+    
+    
     public abstract void  crearFactura();
     
     //definicion de constructor

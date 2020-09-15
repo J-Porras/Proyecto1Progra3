@@ -29,7 +29,7 @@ public class ControllerEmpresa implements ActionListener {
     public void actionPerformed(ActionEvent evento){
     }
     
-    public void addEmpresa(Empresa p){
+    public void addEmpresa(Empresa p) throws Exception{
         logic.Service.getInstance().setDataEmpresa(p);
         this.model.setDataEmprsa(logic.Service.getInstance().getDataEmpresa());
         this.model.commit();

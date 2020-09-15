@@ -16,12 +16,13 @@ import javax.xml.bind.annotation.XmlIDREF;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
-    @XmlID//Identficador unico de objeto
+    
+    @XmlID
     private String nombre;
     
     private int numTel;
     
-    //@XmlIDREF
+    @XmlIDREF
     private Ubicacion ubicacion;
     private Identificacion ID;
     

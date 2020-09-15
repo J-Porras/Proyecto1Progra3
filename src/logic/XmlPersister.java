@@ -18,9 +18,13 @@ import sistema.data.Data;
 public class XmlPersister{
     private String path;
     private static XmlPersister Instance;
+    
+    
     public static XmlPersister getInstance(){
         if (Instance==null) {
             Instance = new XmlPersister();
+            Instance.setPath("data.xml");
+            
             return Instance;
         }
         return Instance;
@@ -53,4 +57,7 @@ public class XmlPersister{
         out.close();
         
     }
+    
+    
+    
 }

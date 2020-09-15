@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlID;
 @XmlAccessorType(XmlAccessType.FIELD)
 
 public class Identificacion {
-    //@XmlID
+    @XmlID
     private String numero;
     
     private int tipo;

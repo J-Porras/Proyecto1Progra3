@@ -35,6 +35,7 @@ public class SisFacturacion {
       view = new ViewApp();
       controller = new ControllerApp(model,view);
       view.setVisible(true);
+      
     }
     
 }
