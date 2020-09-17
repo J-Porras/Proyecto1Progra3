@@ -22,11 +22,15 @@ public class Fecha {
     }
 
     public Fecha() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
-    public static String getCurrentDate(){
+    public String getCurrentDate(){
         return java.time.LocalDateTime.now().format(DateTimeFormatter.ISO_DATE);
+    }
+    
+    public String getPlusDays(int i){
+        return java.time.LocalDateTime.now().plusDays(i).format(DateTimeFormatter.ISO_DATE);
     }
 
     public int getDia() {

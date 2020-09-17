@@ -7,6 +7,7 @@ package logic;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 import org.jdom2.Attribute;
 import org.jdom2.Document;
@@ -22,12 +23,13 @@ import org.jdom2.output.XMLOutputter;
  */
 public class JavaXML extends Factura{
 
-    public JavaXML(int Codigo, double total, int cantidad, String formaDePago, Fecha fechaVencimiento, Fecha diaActual, String ClaveElectronica, 
-            String NumeroFacturaElectronica, int Plazo, Cliente cliente1, Fecha fecha, Producto producto, Empresa empresa) 
+    public JavaXML(int codigo, double total, int cantidadProducto, String formaDePago,
+            Cliente cliente1, Empresa empresa, List<Producto> productos)
     {
-        super(Codigo, total, cantidad, formaDePago, fechaVencimiento, diaActual, ClaveElectronica, 
-                NumeroFacturaElectronica, Plazo, cliente1, fecha, producto, empresa);
+        super(codigo, total, cantidadProducto, formaDePago,cliente1, empresa, productos);
     }
+
+   
 
         
     @Override

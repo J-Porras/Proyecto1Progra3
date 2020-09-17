@@ -12,9 +12,10 @@ import Presentation.WindowFactura.ViewFactura;
 import Presentation.WindowProductos.ControllerProducto;
 import Presentation.WindowProductos.ModelProducto;
 import Presentation.WindowProductos.ViewProducto;
+import logic.Fecha;
 
 public class ControllerApp {
-    private  ModelApp model;
+    private ModelApp model;
     private ViewApp view;
 
     public ControllerApp(ModelApp model, ViewApp view) {
@@ -25,6 +26,7 @@ public class ControllerApp {
         
         initOptions();
     }
+    
     //factura
     ModelFactura facturas_model;
     ViewFactura facturas_view;
@@ -42,6 +44,7 @@ public class ControllerApp {
     ModelProducto producto_model;
     ViewProducto producto_view;
     
+    Fecha fechaActual;
     
     public void initOptions() {
         cliente_Moddel =  new ModelCliente();
@@ -61,7 +64,9 @@ public class ControllerApp {
         facturas_model= new ModelFactura() ;
         facturas_view= new ViewFactura();
     
-    facturas_controller = new ControllerFactura(facturas_model,facturas_view) ;
+        facturas_controller = new ControllerFactura(facturas_model,facturas_view);
+        fechaActual = new Fecha();
+        this.view.getLblFecha().setText(fechaActual.getCurrentDate());
     }
     
     public void EmpresaShow(){

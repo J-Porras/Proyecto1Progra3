@@ -11,23 +11,25 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import com.itextpdf.text.Document;
+import java.awt.List;
 
 /**
  *
  * @author Porras
  */
 public class FacturaPDF extends Factura{
-    Document docPDF;
+    Document docPdf;
 
-    public FacturaPDF(int Codigo, double total, int cantidad, String formaDePago, Fecha fechaVencimiento, Fecha diaActual, 
-            String ClaveElectronica, String NumeroFacturaElectronica, int Plazo, Cliente cliente1, Fecha fecha, Producto producto, Empresa empresa)
+    public FacturaPDF(Document docPdf, int codigo, double total, int cantidadProducto, String formaDePago, 
+            Cliente cliente1, Empresa empresa, java.util.List<Producto> productos) 
     {
-        super(Codigo, total, cantidad, formaDePago, fechaVencimiento, diaActual, ClaveElectronica, NumeroFacturaElectronica, 
-                Plazo, cliente1, fecha, producto, empresa);
-        
-        this.docPDF = new Document();
+        super(codigo, total, cantidadProducto, formaDePago,cliente1, empresa, productos);
+        this.docPdf = new Document();
     }
-    
+
+   
+
+   
 
    
 
@@ -43,19 +45,23 @@ public class FacturaPDF extends Factura{
     public void initPDF(){
         
         try {
-            PdfWriter writer = PdfWriter.getInstance(docPDF, new FileOutputStream(this.getCodigo()));
-            docPDF.open();
-            docPDF.add(new Paragraph(this.empresa.getNomEmpresa()));
-            docPDF.add(new Paragraph(this.empresa.getDireccion()));
-            docPDF.add(new Paragraph("Tel: "+this.empresa.getNumTelefono()));
-            docPDF.add(new Paragraph(this.empresa.getPagWeb()));
-            docPDF.add(new Paragraph(" "));
-            docPDF.add(new Paragraph("Cedula Juridica: " + this.empresa.getIDJurid()));
+            PdfWriter writer = PdfWriter.getInstance(docPdf, new FileOutputStream(this.getCodigo()));
+            docPdf.open();
+            this.emisorData();
+            
+            docPdf.add(new Paragraph(" "));
+            docPdf.add(new Paragraph(diaActual.getCurrentDate()));
+            docPdf.add(new Paragraph("Fecha de Vencimiento: " + fechaVencimiento.getPlusDays(365)));
+            
+            this.dataClient();
+            
+            
+           
             //docPDF.add(new Paragraph("Factura Electronica No." + this.getNumeroFacturaElectronica()));
             
 
             
-            docPDF.close();
+            docPdf.close();
             writer.close();
         } 
         catch (DocumentException e)
@@ -71,26 +77,52 @@ public class FacturaPDF extends Factura{
     public void dataClient(){
         
         try {
-            docPDF.open();
-            docPDF.add(new Paragraph("Datos del cliente"));
-            docPDF.add(new Paragraph(this.cliente1.getNombre()));
-            docPDF.add(new Paragraph((this.cliente1.getID().getNumero())));
-            docPDF.add(new Paragraph(this.cliente1.getNumTel()));
+            docPdf.open();
+            docPdf.add(new Paragraph("Datos del receptor: "));
+            docPdf.add(new Paragraph(cliente1.getNombre()));
             
-            docPDF.close();
+            if (cliente1.getID().getTipo()==0) {
+                docPdf.add(new Paragraph("Cédula Física: " + cliente1.getID().getNumero()));
+                
+            }
+            if (cliente1.getID().getTipo() == 1) {
+                docPdf.add(new Paragraph("Cédula Jurídica: " + cliente1.getID().getNumero()));
+            }
+            else
+                docPdf.add(new Paragraph("Identificación: " + cliente1.getID().getNumero()));
+            
+            docPdf.add(new Paragraph("Teléfono: " +  Integer.toString(cliente1.getNumTel())));
+            
             
         } 
         catch (DocumentException e)
         {
             e.printStackTrace();
         } 
-         /*catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
-        }*/
         
         
     }
     
+    public void emisorData(){
+         
+        try {
+            
+            docPdf.open();
+            docPdf.add(new Paragraph(this.empresa.getNomEmpresa()));
+            docPdf.add(new Paragraph("Cedula Juridica: " + this.empresa.getIDJurid()));
+            docPdf.add(new Paragraph(this.empresa.getDireccion()));
+
+            docPdf.add(new Paragraph("Tel: "+this.empresa.getNumTelefono()));
+            docPdf.add(new Paragraph(this.empresa.getPagWeb()));
+            docPdf.add(new Paragraph(" "));
+            
+        }
+        catch (DocumentException e)
+        {
+            e.printStackTrace();
+        } 
+        catch (Exception e) {
+        }
+    }
     
 }
