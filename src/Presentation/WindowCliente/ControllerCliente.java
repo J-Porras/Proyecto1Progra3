@@ -7,6 +7,7 @@ package Presentation.WindowCliente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import logic.*;
@@ -16,7 +17,7 @@ import logic.*;
  * @author Porras
  */
 public class ControllerCliente implements ActionListener{
-    private ModelCliente model;
+   private ModelCliente model;
    private ViewCliente view;
     
     
@@ -31,9 +32,11 @@ public class ControllerCliente implements ActionListener{
         view.getComBoxProvincia().setModel(new DefaultComboBoxModel(logic.Service.getInstance().getListProvincias().getProvincias()));
     }
     
-     public void show(){
+    public void show(){
         view.setVisible(true);
-    } 
+    }
+     
+     
     @Override
     public void actionPerformed(ActionEvent evento){
         int i = view.getComBoxProvincia().getSelectedIndex();
@@ -94,7 +97,8 @@ public class ControllerCliente implements ActionListener{
         model.setListCliente(logic.Service.getInstance().getListClientes());
         model.commit();
     }
-
+    
+    
    
     
     

@@ -10,6 +10,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import sistema.data.Data;
+import sistema.data.Datax;
 
 /**
  *
@@ -24,7 +25,6 @@ public class XmlPersister{
         if (Instance==null) {
             Instance = new XmlPersister();
             Instance.setPath("data.xml");
-            
             return Instance;
         }
         return Instance;
@@ -45,14 +45,14 @@ public class XmlPersister{
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         Data result = (Data)unmarshaller.unmarshal(in);
         in.close();
-        return result;
+        return result; 
     }
     
-    public void store(Data data) throws Exception{
-        JAXBContext jaxbContext =  JAXBContext.newInstance(Data.class);
+    public void store(Datax datax) throws Exception{
+        JAXBContext jaxbContext =  JAXBContext.newInstance(Datax.class);
         FileOutputStream out  = new FileOutputStream(path);
         Marshaller marshaller = jaxbContext.createMarshaller();
-        marshaller.marshal(data,out);
+        marshaller.marshal(datax,out);
         out.flush();
         out.close();
         

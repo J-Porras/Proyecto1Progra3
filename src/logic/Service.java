@@ -7,6 +7,7 @@ package logic;
 
 import sistema.data.Data;
 import java.util.List;
+import sistema.data.Datax;
 
 
 /**
@@ -17,10 +18,11 @@ public class Service {
     
     private static Service instance;
     Data data;
-    XmlPersister xmlpersister;
+    Datax datax;
     
     private Service(){
         data = new Data();
+        datax = new Datax();
        
     }
     
@@ -32,32 +34,33 @@ public class Service {
     }
     
     public List<Cliente> getListClientes(){
-        return this.data.getClientes();
+        return this.datax.getClientes();
     }
     
     public void addCliente(Cliente c) throws Exception{
-        this.data.getClientes().add(c);
-        logic.XmlPersister.getInstance().store(this.data);
+        //this.data.getClientes().add(c);
+        this.datax.getClientes().add(c);
+        logic.XmlPersister.getInstance().store(this.datax);
     }
     
     public List<Producto> getListProductos(){
-        return this.data.getProductos();
+        return this.datax.getProductos();
     }
     
     
     public void addProducto(Producto p) throws Exception{
-        this.data.getProductos().add(p);
-        //this.xmlpersister.store(this.data);
+        this.datax.getProductos().add(p);
+        logic.XmlPersister.getInstance().store(this.datax);
     }
     
     public void setDataEmpresa(Empresa emp) throws Exception{
-        this.data.setDataEmpresa(emp);
-        //this.xmlpersister.store(this.data);
+        this.datax.setEmpresa(emp);
+        logic.XmlPersister.getInstance().store(this.datax);
         
     }
     
     public Empresa getDataEmpresa(){
-        return this.data.getDataEmpresa();
+        return this.datax.getEmpresa();
     }
     
     public Cantones getListCantones(){
@@ -68,6 +71,27 @@ public class Service {
         return this.data.getProvincias();
     }
     
+    public Cliente getDataCliente(Cliente cliente){
+        Cliente aux;
+        for (int i = 0; i < this.data.getClientes().size(); i++) {
+            aux = data.getClientes().get(i);
+            if (cliente.getID().getNumero().equals(aux.getID().getNumero())) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+    
+    public Producto getDataProducto(double codigo){
+        Producto p;
+        for (int i = 0; i < data.getProductos().size(); i++) {
+            p = data.getProductos().get(i);
+            if (p.getCodigo() == codigo) {
+                return p;
+            }
+        }
+        return null;
+    }
     
     
 }

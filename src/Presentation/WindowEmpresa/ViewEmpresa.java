@@ -7,6 +7,8 @@ package Presentation.WindowEmpresa;
 
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 import logic.Empresa;
 import sistema.errors.DataException;
@@ -204,6 +206,7 @@ public class ViewEmpresa extends javax.swing.JFrame implements Observer{
             int tel = Integer.parseInt(txtNumTel.getText());
             Empresa empresa = new Empresa(nomEmp,dirEmp,tel,ID,pagweb);
             this.control.addEmpresa(empresa);
+            
             txtNomEmpresa.setText(" ");
             txtDireccion.setText(" ");
             txtCedJurid.setText(" ");
@@ -213,19 +216,19 @@ public class ViewEmpresa extends javax.swing.JFrame implements Observer{
         catch(EmptySpaceExcep e){
             e.infoError("Error",e,this);
         }
-        catch (Exception e) {
+        catch (DataException e) {   
             DataException panic = new DataException();
-            panic.infoError("Error",panic,this);
+            panic.infoError("Error", panic,this);
         }
-    
-        
-        
-        
+        catch (Exception ex) {
+           Logger.getLogger(ViewEmpresa.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_InsertDataActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
     

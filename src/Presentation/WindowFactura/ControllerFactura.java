@@ -5,10 +5,13 @@
  */
 package Presentation.WindowFactura;
 
+import Presentation.WindowProductos.ProductoTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.List;
+import logic.Producto;
 
 /**
  *
@@ -23,9 +26,40 @@ public class ControllerFactura implements ActionListener, MouseListener{
         this.model = facturas_model;
         this.view = facturas_view;
     }
-   public void show(){
+    public void show(){
         view.setVisible(true);
     } 
+   
+    public void initComponents(){
+        this.view.getTableProductos().setModel(new ProductoTableModel(model.getListProductos()));
+    }
+    
+    public void addProdFactura(Producto p){
+        this.model.productosFactura.add(p);
+        this.model.commit();
+    }
+    
+    public float subtotal(List<Producto> productos){
+        float subtotal = 0;
+        for (int i = 0; i < 10; i++) {
+            subtotal += (productos.get(i).getPrecio());
+        }
+        return subtotal;
+    }
+    
+    
+    
+    public float impuestoFactura(int impuesto,List<Producto> productos){
+        float impuestodecimal = impuesto/100;
+        float impuestotal = 0;
+ 
+        for (int i = 0; i < 10; i++) {
+            impuestotal += (productos.get(i).getPrecio()*impuestodecimal);
+        }
+        return impuestotal;
+    }
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {}
 

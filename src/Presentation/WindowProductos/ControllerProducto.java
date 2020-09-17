@@ -31,6 +31,7 @@ public class ControllerProducto implements ActionListener{
     
     public void addProducto(Producto p) throws Exception{
         logic.Service.getInstance().addProducto(p);
+
         this.model.setProductos(logic.Service.getInstance().getListProductos());
         this.model.commit();
     }

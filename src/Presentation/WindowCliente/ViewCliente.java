@@ -6,6 +6,8 @@
 package Presentation.WindowCliente;
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import logic.Cliente;
@@ -281,6 +283,11 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
                 throw new CharacterExcep();
             }
             this.controller.addCliente(c);
+            
+            txtNombre1.setText(null);
+            txtNumTel.setText(null);
+            txt_ID.setText(null);
+            
        
             
         }
@@ -290,12 +297,15 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
         catch(CharacterExcep e){
             e.infoError("Error", e,this);
         }
-        
-        catch (Exception e) {   
+        catch (DataException e) {   
             DataException panic = new DataException();
             panic.infoError("Error", panic,this);
  
         }
+        catch (Exception ex) {
+                Logger.getLogger(ViewCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
     }//GEN-LAST:event_btnAgregarActionPerformed
 

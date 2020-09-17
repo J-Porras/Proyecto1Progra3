@@ -7,6 +7,7 @@ package Presentation.WindowFactura;
 
 import java.util.List;
 import java.util.Observable;
+import logic.Cliente;
 import logic.Producto;
 
 /**
@@ -16,9 +17,14 @@ import logic.Producto;
 public class ModelFactura extends Observable {
     
     List<Producto> listProductos;
+    List<Producto> productosFactura;
+    List<Cliente> listclientes;
+    Cliente clienteActual;
     
     public ModelFactura (){
         listProductos = logic.Service.getInstance().getListProductos();
+        productosFactura = logic.Service.getInstance().getListProductos();
+        listclientes = logic.Service.getInstance().getListClientes();
     }  
     
     @Override
@@ -42,6 +48,30 @@ public class ModelFactura extends Observable {
 
     public void setListProductos(List<Producto> listProductos) {
         this.listProductos = listProductos;
+    }
+
+    public List<Cliente> getListclientes() {
+        return listclientes;
+    }
+
+    public void setListclientes(List<Cliente> listclientes) {
+        this.listclientes = listclientes;
+    }
+
+    public Cliente getClienteActual() {
+        return clienteActual;
+    }
+
+    public void setClienteActual(Cliente clienteActual) {
+        this.clienteActual = clienteActual;
+    }
+
+    public List<Producto> getProductosFactura() {
+        return productosFactura;
+    }
+
+    public void setProductosFactura(List<Producto> productosFactura) {
+        this.productosFactura = productosFactura;
     }
     
     

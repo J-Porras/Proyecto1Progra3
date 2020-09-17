@@ -17,14 +17,16 @@ import javax.xml.bind.annotation.XmlIDREF;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
     
-    @XmlID
+    @XmlIDREF
+    private Identificacion ID;
+    
     private String nombre;
     
     private int numTel;
-    
-    @XmlIDREF
+
     private Ubicacion ubicacion;
-    private Identificacion ID;
+    
+    
     
     
     
@@ -33,6 +35,10 @@ public class Cliente {
         this.ID = ID;
         this.numTel = numTel;
         this.ubicacion = ubicacion;
+    }
+
+    public Cliente() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
