@@ -27,6 +27,8 @@ public class ControllerEmpresa implements ActionListener {
         view.getLblDirecc().setText(logic.Service.getInstance().getDataEmpresa().getDireccion());
         view.getLblNum().setText(Integer.toString(logic.Service.getInstance().getDataEmpresa().getNumTelefono()));
         view.getLblPag().setText(logic.Service.getInstance().getDataEmpresa().getPagWeb());
+           
+        
     }
 
  

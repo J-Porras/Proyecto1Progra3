@@ -44,10 +44,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -74,21 +75,27 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="107" pref="107" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="107" pref="107" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblNombre" max="32767" attributes="0"/>
-                                  <Component id="lblID" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblPag" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblNombre" max="32767" attributes="0"/>
+                                      <Component id="lblID" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblPag" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblNum" alignment="1" min="-2" pref="128" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="lblDirecc" alignment="1" min="-2" pref="128" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="lblNum" alignment="1" min="-2" pref="128" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="lblDirecc" min="-2" pref="170" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -212,27 +219,27 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombre">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel8"/>
+        <Property name="text" type="java.lang.String" value="-----"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblID">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel9"/>
+        <Property name="text" type="java.lang.String" value="-----"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDirecc">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel10"/>
+        <Property name="text" type="java.lang.String" value="-----"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPag">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel12"/>
+        <Property name="text" type="java.lang.String" value="-----"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNum">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel13"/>
+        <Property name="text" type="java.lang.String" value="-----"/>
       </Properties>
     </Component>
   </SubComponents>
