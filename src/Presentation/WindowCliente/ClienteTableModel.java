@@ -14,7 +14,7 @@ import logic.*;
  * @author Porras
  */
 public class ClienteTableModel extends AbstractTableModel {
-    private String[] nombresColumna={"ID","TipoID","Nombre","Telefono","Provincia","Canton"};
+    private String[] nombresColumna={"ID","Nombre","Telefono","Provincia","Canton"};
     private List<Cliente> clientes;
 
     public ClienteTableModel(List<Cliente> clientesModel) {
@@ -36,28 +36,24 @@ public class ClienteTableModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         if (columnIndex == 0) {
-            return clientes.get(rowIndex).getID();
+            return clientes.get(rowIndex).getID().getNumero();
         }
         else    
         if (columnIndex == 1) {
-            return clientes.get(rowIndex).getTipoID();
-        }
-        else
-        if (columnIndex == 2) {
             return clientes.get(rowIndex).getNombre();
         }
         else
-        if (columnIndex == 3) {
+        if (columnIndex == 2) {
             return clientes.get(rowIndex).getNumTel();
         }
         else
-            if(columnIndex == 4){
-                return clientes.get(rowIndex).getUbicacion().getProvincia();
-            }
-        else
-        if (columnIndex == 5) {
-            return clientes.get(rowIndex).getUbicacion().getCanton();
+        if (columnIndex == 3) {
+            return clientes.get(rowIndex).getUbicacion().getProvincia();
         }
+        else
+            if(columnIndex == 4){
+                return clientes.get(rowIndex).getUbicacion().getCanton();
+            }
         return 0;
     }
      public String getColumnName(int col) {

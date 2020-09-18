@@ -399,7 +399,7 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
                 throw new EmptySpaceExcep();
             }
             Cliente clienteaux = new Cliente();
-            clienteaux.setID(txtNomCliente.getText());
+            clienteaux.setID(new Identificacion(3,txtNomCliente.getText()));
             clienteaux = logic.Service.getInstance().getDataCliente(clienteaux);
             if (clienteaux !=null) {
                 this.model.setClienteActual(clienteaux);
