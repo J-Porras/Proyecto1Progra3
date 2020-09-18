@@ -30,7 +30,7 @@ public class Datax {
     private List<Factura> facturas;
     
     public Datax() {
-        this.clientes = new ArrayList<>();
+        //this.clientes = new ArrayList<>();
         this.productos = new ArrayList<>();
         this.empresa = new Empresa();
         facturas = new ArrayList<>();
@@ -42,7 +42,7 @@ public class Datax {
     
     
     public void setClientes(List<Cliente> clientes) {
-        this.clientes = clientes;
+       this.clientes = clientes;
     }
 
     public Empresa getEmpresa() {

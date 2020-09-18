@@ -12,6 +12,8 @@ import Presentation.WindowFactura.ViewFactura;
 import Presentation.WindowProductos.ControllerProducto;
 import Presentation.WindowProductos.ModelProducto;
 import Presentation.WindowProductos.ViewProducto;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import logic.Fecha;
 
 public class ControllerApp {
@@ -46,6 +48,8 @@ public class ControllerApp {
     
     Fecha fechaActual;
     
+    
+    
     public void initOptions() {
         cliente_Moddel =  new ModelCliente();
         cliente_View = new ViewCliente();
@@ -67,6 +71,13 @@ public class ControllerApp {
         facturas_controller = new ControllerFactura(facturas_model,facturas_view);
         fechaActual = new Fecha();
         this.view.getLblFecha().setText(fechaActual.getCurrentDate());
+        
+        try {
+            logic.Service.getInstance().setData(logic.XmlPersister.getInstance().load());
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ControllerApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void EmpresaShow(){

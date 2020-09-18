@@ -7,6 +7,7 @@ package logic;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
 
@@ -17,7 +18,6 @@ import javax.xml.bind.annotation.XmlIDREF;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
     
-    @XmlIDREF
     private Identificacion ID;
     
     private String nombre;
@@ -25,8 +25,6 @@ public class Cliente {
     private int numTel;
 
     private Ubicacion ubicacion;
-    
-    
     
     
     
@@ -38,14 +36,9 @@ public class Cliente {
     }
 
     public Cliente() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
-    
-    
-    
-    
-    
     
     public String getNombre() {
         return nombre;
@@ -82,4 +75,8 @@ public class Cliente {
        return nombre.matches(".*\\d.*");
     }
     
+    @XmlID
+    public String getNumID(){
+        return this.ID.getNumero();
+    }
 }

@@ -425,7 +425,7 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
         // TODO add your handling code here:
         try {
             int rowIndex = tableProductos.getSelectedRow();
-            double codigo = Double.parseDouble(tableProductos.getValueAt(rowIndex, 0).toString());
+            String codigo = tableProductos.getValueAt(rowIndex, 0).toString();
             Producto p = logic.Service.getInstance().getDataProducto(codigo);
             if (p!=null) {
                 this.controller.addProdFactura(p);
@@ -462,7 +462,7 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
             else   
                 throw new EmptySpaceExcep();
             
-            Factura factura = new FacturaPDF(logic.Service.getInstance().getFacturas().size(),total,model.getProductosFactura().size(),
+            Factura factura = new FacturaPDF(Integer.toString(logic.Service.getInstance().getFacturas().size()),total,model.getProductosFactura().size(),
             formaPago,model.getClienteActual(),logic.Service.getInstance().getDataEmpresa(),model.getProductosFactura());
             factura.crearFactura();
             

@@ -23,7 +23,7 @@ import org.jdom2.output.XMLOutputter;
  */
 public class JavaXML extends Factura{
 
-    public JavaXML(int codigo, double total, int cantidadProducto, String formaDePago,
+    public JavaXML(String codigo, double total, int cantidadProducto, String formaDePago,
             Cliente cliente1, Empresa empresa, List<Producto> productos)
     {
         super(codigo, total, cantidadProducto, formaDePago,cliente1, empresa, productos);

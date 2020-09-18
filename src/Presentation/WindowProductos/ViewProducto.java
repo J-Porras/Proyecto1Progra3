@@ -7,6 +7,8 @@ package Presentation.WindowProductos;
 
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import logic.Producto;
 import sistema.errors.DataException;
 import sistema.errors.EmptySpaceExcep;
@@ -238,14 +240,9 @@ public class ViewProducto extends javax.swing.JFrame implements Observer {
         } 
         catch(EmptySpaceExcep e){
             e.infoError("Error",e,this);
-        }
-        catch (Exception e) {
-            DataException panic = new DataException();
-            panic.infoError("Error",panic,this);
-        }
-        
-
-        
+        } catch (Exception ex) {
+            Logger.getLogger(ViewProducto.class.getName()).log(Level.SEVERE, null, ex);
+        }  
         
       
     }//GEN-LAST:event_crearActionPerformed

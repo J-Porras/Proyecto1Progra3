@@ -26,12 +26,26 @@ public class Ubicacion {
         this.canton = canton;  
     }
 
+    public Ubicacion() {
+    }
+
+    
+    
+    
     public String getProvincia() {
         return provincia;
     }
 
     public String getCanton() {
         return canton;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
+
+    public void setCanton(String canton) {
+        this.canton = canton;
     }
     
     

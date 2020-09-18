@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlIDREF;
 //para serializar campos
 public abstract class Factura {
     @XmlID
-    protected int codigo;
+    protected String codigo;
     
     
     protected double total;
@@ -46,7 +46,7 @@ public abstract class Factura {
     
     //definicion de constructor
 
-    public Factura(int codigo, double total, int cantidadProducto, String formaDePago,
+    public Factura(String codigo, double total, int cantidadProducto, String formaDePago,
             Cliente cliente1, Empresa empresa, 
             List<Producto> productos) 
     {

@@ -7,7 +7,9 @@ package logic;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlIDREF;
 
 /**
  * Esta clase será usada en la clase cliente y en la clase empresa
@@ -19,7 +21,7 @@ import javax.xml.bind.annotation.XmlID;
 @XmlAccessorType(XmlAccessType.FIELD)
 
 public class Identificacion {
-    @XmlID
+    
     private String numero;
     
     private int tipo;
@@ -39,12 +41,25 @@ public class Identificacion {
         this.numero = numero;
     }
 
+    public Identificacion() {
+    }
+
+    
+    
     public int getTipo() {
         return tipo;
     }
 
     public String getNumero() {
         return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
      
     

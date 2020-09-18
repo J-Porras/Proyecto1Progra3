@@ -16,8 +16,8 @@ import javax.xml.bind.annotation.XmlID;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Producto {
-    //@XmlID
-    private int Codigo;
+    @XmlID
+    private String Codigo;
     
     private String DescripcionProducto;
     
@@ -25,7 +25,7 @@ public class Producto {
 
     public Producto(String DescripcionProducto, double precio) {
         this.DescripcionProducto = DescripcionProducto;
-        this.Codigo= (int) ((Math.random() * ((199999-100000) + 1)) + 100000);
+        this.Codigo= Double.toString((Math.random() * ((199999-100000) + 1)) + 100000);
         this.precio = precio;
     }
 
@@ -43,11 +43,11 @@ public class Producto {
         this.DescripcionProducto = DescripcionProducto;
     }
 
-    public double getCodigo() {
+    public String getCodigo() {
         return Codigo;
     }
 
-    public void setCodigo(int Codigo) {
+    public void setCodigo(String Codigo) {
         this.Codigo = Codigo;
     }
 
@@ -60,7 +60,7 @@ public class Producto {
     }
 
     public void newCode(){
-        this.Codigo= (int) ((Math.random() * ((199999-100000) + 1)) + 100000);
+        this.Codigo= Double.toString((Math.random() * ((199999-100000) + 1)) + 100000);
     }
     
     

@@ -39,11 +39,11 @@ public class XmlPersister{
     }
     
     
-    public Data load()throws Exception{
-        JAXBContext jaxbContext =  JAXBContext.newInstance(Data.class);
+    public Datax load()throws Exception{
+        JAXBContext jaxbContext =  JAXBContext.newInstance(Datax.class);
         FileInputStream in = new FileInputStream(path);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-        Data result = (Data)unmarshaller.unmarshal(in);
+        Datax result = (Datax)unmarshaller.unmarshal(in);
         in.close();
         return result; 
     }

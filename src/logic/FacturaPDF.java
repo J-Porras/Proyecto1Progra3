@@ -23,7 +23,7 @@ import java.util.List;
 public class FacturaPDF extends Factura{
     Document docPdf;
 
-    public FacturaPDF(int codigo, double total, int cantidadProducto, String formaDePago, 
+    public FacturaPDF(String codigo, double total, int cantidadProducto, String formaDePago, 
             Cliente cliente1, Empresa empresa, List<Producto> productos) 
     {
         super(codigo, total, cantidadProducto, formaDePago, cliente1, empresa, productos);
@@ -158,7 +158,7 @@ public class FacturaPDF extends Factura{
             table.addCell(cell3);
             
             for (int i = 0; i < productos.size(); i++) {
-                table.addCell(Double.toString(productos.get(i).getCodigo()));
+                table.addCell(productos.get(i).getCodigo());
                 table.addCell(productos.get(i).getDescripcionProducto());
                 table.addCell(Double.toString(productos.get(i).getPrecio()));
             }

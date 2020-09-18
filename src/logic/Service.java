@@ -82,7 +82,7 @@ public class Service {
         return null;
     }
     
-    public Producto getDataProducto(double codigo){
+    public Producto getDataProducto(String codigo){
         Producto p;
         for (int i = 0; i < data.getProductos().size(); i++) {
             p = data.getProductos().get(i);
@@ -114,6 +114,10 @@ public class Service {
     
     public List<Factura> getFacturas() {
         return this.data.getListFacturas();
+    }
+    
+    public void setData(Datax datax){
+        this.datax = datax;
     }
     
 }

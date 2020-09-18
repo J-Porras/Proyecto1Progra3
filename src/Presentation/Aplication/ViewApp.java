@@ -215,7 +215,9 @@ public class ViewApp extends javax.swing.JFrame implements java.util.Observer {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-       this.controller.clienteShow();
+
+        
+        this.controller.clienteShow();
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
