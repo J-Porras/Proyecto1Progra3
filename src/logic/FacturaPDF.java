@@ -84,15 +84,15 @@ public class FacturaPDF extends Factura{
             docPdf.add(new Paragraph("Datos del receptor: "));
             docPdf.add(new Paragraph(cliente1.getNombre()));
             
-            if (cliente1.getID().getTipo()==0) {
-                docPdf.add(new Paragraph("Cédula Física: " + cliente1.getID().getNumero()));
+            if (cliente1.getTipoID() ==0) {
+                docPdf.add(new Paragraph("Cédula Física: " + cliente1.getID()));
                 
             }
-            if (cliente1.getID().getTipo() == 1) {
-                docPdf.add(new Paragraph("Cédula Jurídica: " + cliente1.getID().getNumero()));
+            if (cliente1.getTipoID() == 1) {
+                docPdf.add(new Paragraph("Cédula Jurídica: " + cliente1.getID()));
             }
             else
-                docPdf.add(new Paragraph("Identificación: " + cliente1.getID().getNumero()));
+                docPdf.add(new Paragraph("Identificación: " + cliente1.getID()));
             
             docPdf.add(new Paragraph("Teléfono: " +  Integer.toString(cliente1.getNumTel())));
             

@@ -17,8 +17,13 @@ import javax.xml.bind.annotation.XmlIDREF;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
     
-    @XmlIDREF
-    private Identificacion ID;
+   // @XmlIDREF
+   // private Identificacion ID;
+    
+    @XmlID
+    private String ID;
+    
+    private int tipoID;
     
     private String nombre;
     
@@ -26,19 +31,21 @@ public class Cliente {
 
     private Ubicacion ubicacion;
     
-    
-    
-    
-    
-    public Cliente(String nombre, Identificacion ID, int numTel,Ubicacion ubicacion) {
-        this.nombre = nombre;
+
+    public Cliente(String ID, int tipoID, String nombre, int numTel, Ubicacion ubicacion) {
         this.ID = ID;
+        this.tipoID = tipoID;
+        this.nombre = nombre;
         this.numTel = numTel;
         this.ubicacion = ubicacion;
     }
 
+    
+    
+    
+    
     public Cliente() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
@@ -47,10 +54,13 @@ public class Cliente {
     public String getNombre() {
         return nombre;
     }
-
+    
+    
+    
+    /*
     public Identificacion getID() {
         return ID;
-    }
+    }*/
 
     public Ubicacion getUbicacion() {
         return ubicacion;
@@ -64,14 +74,35 @@ public class Cliente {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    /*
     public void setID(Identificacion ID) {
         this.ID = ID;
-    }
+    }*/
 
     public void setNumTel(int numTel) {
         this.numTel = numTel;
     }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public int getTipoID() {
+        return tipoID;
+    }
+
+    public void setTipoID(int tipoID) {
+        this.tipoID = tipoID;
+    }
+
+   
+    
+    
+    
     
     public boolean invalidCharacter(){
        return nombre.matches(".*\\d.*");

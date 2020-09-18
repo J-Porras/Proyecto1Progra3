@@ -91,7 +91,7 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
         tableProductos = new javax.swing.JTable();
         btnBuscarCliente = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        txtNomCliente = new javax.swing.JTextField();
+        txtIDCliente = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -265,7 +265,7 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtNomCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnBuscarCliente))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -308,7 +308,7 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(22, Short.MAX_VALUE)
+                        .addContainerGap(31, Short.MAX_VALUE)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -317,7 +317,7 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNomCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnBuscarCliente)
                             .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -395,11 +395,11 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
         try {
-            if (txtNomCliente.getText().isEmpty()) {
+            if (txtIDCliente.getText().isEmpty()) {
                 throw new EmptySpaceExcep();
             }
             Cliente clienteaux = new Cliente();
-            clienteaux.setID(new Identificacion(3,txtNomCliente.getText()));
+            clienteaux.setID(txtIDCliente.getText());
             clienteaux = logic.Service.getInstance().getDataCliente(clienteaux);
             if (clienteaux !=null) {
                 this.model.setClienteActual(clienteaux);
@@ -505,7 +505,7 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
     private javax.swing.JRadioButton rdbtnTarjeta;
     private javax.swing.JTable tableProductos;
     private javax.swing.JTable tableProductosFac;
-    private javax.swing.JTextField txtNomCliente;
+    private javax.swing.JTextField txtIDCliente;
     // End of variables declaration//GEN-END:variables
 
     

@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlID;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Producto {
-    //@XmlID
+    @XmlID
     private String Codigo;
     
     private String DescripcionProducto;
@@ -30,7 +30,7 @@ public class Producto {
     }
 
     public Producto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
     

@@ -23,8 +23,16 @@ public class ControllerEmpresa implements ActionListener {
         this.model = mod;
         view.setModel(model);
         view.setController(this);
+        initComponents();
     }
 
+    public void initComponents(){
+        if (logic.Service.getInstance().getDataEmpresa()!=null) {
+            view.getLblID().setText(logic.Service.getInstance().getDataEmpresa().getIDJurid());
+        }
+        
+    }
+    
  
     
     public void actionPerformed(ActionEvent evento){

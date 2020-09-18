@@ -84,7 +84,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel13" min="-2" pref="155" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="txtNomCliente" min="-2" pref="138" max="-2" attributes="0"/>
+                                  <Component id="txtIDCliente" min="-2" pref="138" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnBuscarCliente" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -142,7 +142,7 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="31" max="32767" attributes="0"/>
                           <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="277" max="-2" attributes="0"/>
@@ -152,7 +152,7 @@
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtNomCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtIDCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnBuscarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -383,7 +383,7 @@
             <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNomCliente">
+        <Component class="javax.swing.JTextField" name="txtIDCliente">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>

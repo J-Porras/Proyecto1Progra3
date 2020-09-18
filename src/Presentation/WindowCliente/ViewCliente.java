@@ -159,13 +159,13 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
 
         tableClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Telefono", "Provincia", "Canton"
+                "ID", "tipoID", "Nombre", "Telefono", "Provincia", "Canton"
             }
         ));
         jScrollPane1.setViewportView(tableClientes);
@@ -275,9 +275,17 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
             int _numero = Integer.parseInt(txtNumTel.getText());
             Ubicacion u = new Ubicacion((String) comBoxProvincia.getSelectedItem(),(String)comBoxCanton.getSelectedItem());
 
-            Identificacion _id = new Identificacion(comBoxID.getSelectedIndex(),txt_ID.getText());
+            String _id = txt_ID.getText();
+            
+            int tipoID = 0;
+            if (comBoxID.getSelectedIndex() == 0) {
+                tipoID = 0;
+            }
+            if (comBoxID.getSelectedIndex() == 1) {
+                tipoID = 1;
+            }
 
-            Cliente c = new Cliente(txtNombre1.getText(), _id, _numero,u);
+            Cliente c = new Cliente(_id,tipoID,txtNombre1.getText(), _numero,u);
             
             if (c.invalidCharacter()) {
                 throw new CharacterExcep();
@@ -286,10 +294,7 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
             
             txtNombre1.setText(null);
             txtNumTel.setText(null);
-            txt_ID.setText(null);
-            
-       
-            
+            txt_ID.setText(null);       
         }
         catch(EmptySpaceExcep e){   
             e.infoError("Error", e,this);
