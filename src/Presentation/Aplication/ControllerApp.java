@@ -51,6 +51,14 @@ public class ControllerApp {
     
     
     public void initOptions() {
+        
+        try {
+            logic.Service.getInstance().setData(logic.XmlPersister.getInstance().load());
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ControllerApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         cliente_Moddel =  new ModelCliente();
         cliente_View = new ViewCliente();
         cliente_Controller = new ControllerCliente(cliente_Moddel,cliente_View);    
@@ -71,12 +79,7 @@ public class ControllerApp {
         fechaActual = new Fecha();
         this.view.getLblFecha().setText(fechaActual.getCurrentDate());
         
-        try {
-            logic.Service.getInstance().setData(logic.XmlPersister.getInstance().load());
-            
-        } catch (Exception ex) {
-            Logger.getLogger(ControllerApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
     
     public void EmpresaShow(){
