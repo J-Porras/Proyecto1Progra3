@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -22,13 +23,6 @@ public class ControllerEmpresa implements ActionListener {
         this.model = mod;
         view.setModel(model);
         view.setController(this);
-        this.view.getLblNombre().setText(logic.Service.getInstance().getDataEmpresa().getNomEmpresa());
-        view.getLblID().setText(logic.Service.getInstance().getDataEmpresa().getIDJurid());
-        view.getLblDirecc().setText(logic.Service.getInstance().getDataEmpresa().getDireccion());
-        view.getLblNum().setText(Integer.toString(logic.Service.getInstance().getDataEmpresa().getNumTelefono()));
-        view.getLblPag().setText(logic.Service.getInstance().getDataEmpresa().getPagWeb());
-           
-        
     }
 
  

@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -32,7 +33,6 @@ public class ControllerCliente implements ActionListener{
         view.setModel(model);
         view.setController(this);
         view.getComBoxProvincia().setModel(new DefaultComboBoxModel(logic.Service.getInstance().getListProvincias().getProvincias()));
-        model.commit();
     }
     
     public void show(){
@@ -100,10 +100,8 @@ public class ControllerCliente implements ActionListener{
         model.setListCliente(logic.Service.getInstance().getListClientes());
         model.commit();
     }
-    
+}    
     
    
     
     
- 
-}

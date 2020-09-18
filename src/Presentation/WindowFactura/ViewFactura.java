@@ -427,11 +427,7 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
             int rowIndex = tableProductos.getSelectedRow();
             String codigo = tableProductos.getValueAt(rowIndex, 0).toString();
             Producto p = logic.Service.getInstance().getDataProducto(codigo);
-            if (p!=null) {
-                this.controller.addProdFactura(p);
-                
-                
-            }
+            this.controller.addProdFactura(p);
               
             
             
