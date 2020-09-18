@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package logic;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import javax.xml.bind.JAXBContext;
@@ -40,12 +41,18 @@ public class XmlPersister{
     
     
     public Datax load()throws Exception{
-        JAXBContext jaxbContext =  JAXBContext.newInstance(Datax.class);
-        FileInputStream in = new FileInputStream(path);
-        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-        Datax result = (Datax)unmarshaller.unmarshal(in);
-        in.close();
-        return result; 
+        File file = new File(path);
+        
+        
+        if (file.exists() && file.canRead()) {
+            JAXBContext jaxbContext =  JAXBContext.newInstance(Datax.class);
+            FileInputStream in = new FileInputStream(path);
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            Datax result = (Datax)unmarshaller.unmarshal(in);
+            in.close();
+            return result; 
+        }
+        return null; 
     }
     
     public void store(Datax datax) throws Exception{

@@ -7,7 +7,6 @@ package logic;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
 
@@ -17,6 +16,9 @@ import javax.xml.bind.annotation.XmlIDREF;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
+    
+   // @XmlIDREF
+   // private Identificacion ID;
     
     @XmlID
     private String ID;
@@ -28,6 +30,7 @@ public class Cliente {
     private int numTel;
 
     private Ubicacion ubicacion;
+    
 
     public Cliente(String ID, int tipoID, String nombre, int numTel, Ubicacion ubicacion) {
         this.ID = ID;
@@ -37,8 +40,47 @@ public class Cliente {
         this.ubicacion = ubicacion;
     }
 
+    
+    
+    
+    
     public Cliente() {
-        
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+    
+    
+    public String getNombre() {
+        return nombre;
+    }
+    
+    
+    
+    /*
+    public Identificacion getID() {
+        return ID;
+    }*/
+
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
+ 
+    
+    public int getNumTel() {
+        return numTel;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    /*
+    public void setID(Identificacion ID) {
+        this.ID = ID;
+    }*/
+
+    public void setNumTel(int numTel) {
+        this.numTel = numTel;
     }
 
     public String getID() {
@@ -56,27 +98,11 @@ public class Cliente {
     public void setTipoID(int tipoID) {
         this.tipoID = tipoID;
     }
+
+   
     
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public Ubicacion getUbicacion() {
-        return ubicacion;
-    }
     
-    public int getNumTel() {
-        return numTel;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setNumTel(int numTel) {
-        this.numTel = numTel;
-    }
+    
     
     public boolean invalidCharacter(){
        return nombre.matches(".*\\d.*");

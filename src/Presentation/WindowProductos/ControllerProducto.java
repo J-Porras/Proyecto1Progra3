@@ -17,14 +17,25 @@ public class ControllerProducto implements ActionListener{
    private  ModelProducto model;
     private ViewProducto view;
 
-    public ControllerProducto(ModelProducto model, ViewProducto view) {
+    public ControllerProducto(ModelProducto model, ViewProducto view) throws Exception {
         this.model = model;
         this.view = view;
         view.setModel(model);
         view.setController(this);
+        initComponents();
+    }
+    
+    
+    public void initComponents() throws Exception{
+        if (!logic.Service.getInstance().getListProductos().isEmpty()) {
+            model.setProductos(logic.Service.getInstance().getListProductos());
+            model.commit();
+        }
         
     }
 
+    
+    
     @Override
     public void actionPerformed(ActionEvent arg0) {
     }

@@ -14,7 +14,7 @@ import logic.*;
  * @author Porras
  */
 public class ClienteTableModel extends AbstractTableModel {
-    private String[] nombresColumna={"ID","TipoID","Nombre","Telefono","Provincia","Canton"};
+    private String[] nombresColumna={"ID","Tipo","Nombre","Telefono","Provincia","Canton"};
     private List<Cliente> clientes;
 
     public ClienteTableModel(List<Cliente> clientesModel) {
@@ -51,11 +51,11 @@ public class ClienteTableModel extends AbstractTableModel {
             return clientes.get(rowIndex).getNumTel();
         }
         else
-            if(columnIndex == 4){
-                return clientes.get(rowIndex).getUbicacion().getProvincia();
-            }
+        if(columnIndex == 4){
+            return clientes.get(rowIndex).getUbicacion().getProvincia();
+        }
         else
-        if (columnIndex == 5) {
+            if (columnIndex == 5) {
             return clientes.get(rowIndex).getUbicacion().getCanton();
         }
         return 0;

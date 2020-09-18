@@ -1,3 +1,4 @@
+
 package Presentation.Aplication;
 
 import Presentation.WindowCliente.ControllerCliente;
@@ -20,7 +21,7 @@ public class ControllerApp {
     private ModelApp model;
     private ViewApp view;
 
-    public ControllerApp(ModelApp model, ViewApp view) {
+    public ControllerApp(ModelApp model, ViewApp view) throws Exception {
         this.model = model;
         this.view = view;
         view.setModel(model);
@@ -50,36 +51,37 @@ public class ControllerApp {
     
     
     
-    public void initOptions() {
         
+
+
+    public void initOptions() {
+
         try {
             logic.Service.getInstance().setData(logic.XmlPersister.getInstance().load());
+            cliente_Moddel =  new ModelCliente();
+            cliente_View = new ViewCliente();
+            
+            cliente_Controller = new ControllerCliente(cliente_Moddel,cliente_View);
+            //Porducto
+            producto_model= new ModelProducto();
+            producto_view = new ViewProducto();
+            producto_controller = new ControllerProducto(producto_model,producto_view);
+            //empresa
+            
+            empresa_model= new ModelEmpresa() ;
+            empresa_view= new ViewEmpresa();
+            empresa_controller= new ControllerEmpresa(empresa_view, empresa_model);
+            //factura
+            facturas_model= new ModelFactura() ;
+            facturas_view= new ViewFactura();
+            
+            facturas_controller = new ControllerFactura(facturas_model,facturas_view);
+            fechaActual = new Fecha();
+            this.view.getLblFecha().setText(fechaActual.getCurrentDate());
             
         } catch (Exception ex) {
             Logger.getLogger(ControllerApp.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        cliente_Moddel =  new ModelCliente();
-        cliente_View = new ViewCliente();
-        cliente_Controller = new ControllerCliente(cliente_Moddel,cliente_View);    
-        //Porducto
-        producto_model= new ModelProducto();
-        producto_view = new ViewProducto();
-        producto_controller = new ControllerProducto(producto_model,producto_view);
-        //empresa
- 
-        empresa_model= new ModelEmpresa() ;
-        empresa_view= new    ViewEmpresa();  
-        empresa_controller= new ControllerEmpresa(empresa_view, empresa_model);
-        //factura
-        facturas_model= new ModelFactura() ;
-        facturas_view= new ViewFactura();
-    
-        facturas_controller = new ControllerFactura(facturas_model,facturas_view);
-        fechaActual = new Fecha();
-        this.view.getLblFecha().setText(fechaActual.getCurrentDate());
-        
-        
     }
     
     public void EmpresaShow(){

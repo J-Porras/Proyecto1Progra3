@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,7 +8,6 @@ package Presentation.WindowCliente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import logic.*;
@@ -26,11 +26,13 @@ public class ControllerCliente implements ActionListener{
     public ControllerCliente(ModelCliente model, ViewCliente view) {
         this.model = model;
         this.view = view;
-        model.setListCliente(logic.Service.getInstance().getListClientes());
+       /* if (logic.Service.getInstance().getListClientes()!=null) {
+            model.setListCliente(logic.Service.getInstance().getListClientes());
+        }*/
+       
         view.setModel(model);
         view.setController(this);
         view.getComBoxProvincia().setModel(new DefaultComboBoxModel(logic.Service.getInstance().getListProvincias().getProvincias()));
-        model.commit();
     }
     
     public void show(){
@@ -98,10 +100,8 @@ public class ControllerCliente implements ActionListener{
         model.setListCliente(logic.Service.getInstance().getListClientes());
         model.commit();
     }
-    
+}    
     
    
     
     
- 
-}

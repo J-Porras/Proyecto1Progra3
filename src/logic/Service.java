@@ -34,7 +34,11 @@ public class Service {
     }
     
     public List<Cliente> getListClientes(){
-        return this.datax.getClientes();
+        if (this.datax.getClientes()!=null) {
+            return this.datax.getClientes();
+        }
+        return null;
+        
     }
     
     public void addCliente(Cliente c) throws Exception{
@@ -60,7 +64,10 @@ public class Service {
     }
     
     public Empresa getDataEmpresa(){
-        return this.datax.getEmpresa();
+        if (this.datax.getEmpresa()!=null) {
+            return this.datax.getEmpresa();
+        }
+        return null;
     }
     
     public Cantones getListCantones(){

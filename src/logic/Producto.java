@@ -25,12 +25,12 @@ public class Producto {
 
     public Producto(String DescripcionProducto, double precio) {
         this.DescripcionProducto = DescripcionProducto;
-        this.Codigo= Double.toString((Math.random() * ((199999-100000) + 1)) + 100000);
+        this.Codigo =  Double.toString((Math.random() * ((19999-10000) + 1)) + 10000);
         this.precio = precio;
     }
 
     public Producto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
     
@@ -60,7 +60,7 @@ public class Producto {
     }
 
     public void newCode(){
-        this.Codigo= Double.toString((Math.random() * ((199999-100000) + 1)) + 100000);
+        this.Codigo= Double.toString((Math.random() * ((19999-10000) + 1)) + 10000);
     }
     
     
