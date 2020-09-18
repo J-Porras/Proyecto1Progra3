@@ -5,15 +5,31 @@
  */
 package logic;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlID;
+
 /**
  *
  * @author Porras
  */
-public class Empresa {
-    private String nomEmpresa;
-    private String direccion;
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Empresa{
+    
+    @XmlID
     private String IDJurid;
+     
+    private String nomEmpresa;
+    //@XmlAttribute
+    private String direccion;
+    
+    //@XmlAttribute
+   
+   // @XmlAttribute
     private String pagWeb;
+    
+    //@XmlAttribute
     private int numTelefono;
     
     public Empresa(String nomEmpresa, String direccion, int numTelefono, String IDJurid, String pagWeb) {
@@ -53,16 +69,25 @@ public class Empresa {
         return pagWeb;
     }
 
-    public String toString(){
-        return "Nombre: " + nomEmpresa + " Direccion: " + direccion + " Telefono: " + 
-                Integer.toString(numTelefono) + " ID Juridico" + IDJurid + "Pagina web: " + pagWeb;
-        
+    public void setIDJurid(String IDJurid) {
+        this.IDJurid = IDJurid;
     }
-    
-    
-    
 
-    
-    
+    public void setNomEmpresa(String nomEmpresa) {
+        this.nomEmpresa = nomEmpresa;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setPagWeb(String pagWeb) {
+        this.pagWeb = pagWeb;
+    }
+
+    public void setNumTelefono(int numTelefono) {
+        this.numTelefono = numTelefono;
+    }
+ 
     
 }

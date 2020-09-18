@@ -5,8 +5,11 @@
  */
 package logic;
 
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlIDREF;
 
 /**
  *
@@ -16,8 +19,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.FIELD)
 //para serializar campos
 public abstract class Factura {
+    @XmlID
+    protected String codigo;
     
-    protected int codigo;
+    
     protected double total;
     protected int cantidadProducto;
     protected String formaDePago;
@@ -28,32 +33,35 @@ public abstract class Factura {
     // atributos no primitivos
     protected Fecha fechaVencimiento;
     protected Fecha diaActual;
+    @XmlIDREF
     protected Cliente cliente1;
+    @XmlIDREF
     protected Empresa empresa;
     //Lista Productos??
-    protected Producto producto;
+    @XmlIDREF
+    protected List<Producto> productos;
+    
+    
     public abstract void  crearFactura();
     
     //definicion de constructor
-    public Factura(int Codigo, double total, int cantidad, String formaDePago, Fecha fechaVencimiento, Fecha diaActual, String ClaveElectronica, String NumeroFacturaElectronica,
-            int Plazo, Cliente cliente1, Fecha fecha, Producto producto, Empresa empresa) {
-        this.codigo = Codigo;
+
+    public Factura(String codigo, double total, int cantidadProducto, String formaDePago,
+            Cliente cliente1, Empresa empresa, 
+            List<Producto> productos) 
+    {
+        this.codigo = codigo;
         this.total = total;
-        this.cantidadProducto = cantidad;
+        this.cantidadProducto = cantidadProducto;
         this.formaDePago = formaDePago;
-        this.fechaVencimiento = fechaVencimiento;
-        this.diaActual = diaActual;
-        //this.claveElectronica = ClaveElectronica;
-        //this.NumeroFacturaElectronica = NumeroFacturaElectronica;
-       // this.Plazo = Plazo;
+        this.fechaVencimiento = new Fecha();
+        
+        this.diaActual = new Fecha();
         this.cliente1 = cliente1;
-        //this.fecha = fecha;
-        this.producto = producto;
         this.empresa = empresa;
+        this.productos = productos;
     }
-    
-    
-    
+
     
     public String getCodigo(){
          return "FA."+codigo;
@@ -70,20 +78,6 @@ public abstract class Factura {
     public String getFormaDePago() {
         return formaDePago;
     }
-    /*
-    public String getClaveElectronica() {
-        return claveElectronica;
-    }*/
-    
-    /*
-
-    public String getNumeroFacturaElectronica() {
-        return NumeroFacturaElectronica;
-    }*/
-
-    /*public int getPlazo() {
-        return Plazo;
-    }*/
 
     public Fecha getFechaVencimiento() {
         return fechaVencimiento;
@@ -97,13 +91,9 @@ public abstract class Factura {
         return cliente1;
     }
 
-    /*
-    public Fecha getFecha() {
-        return fecha;
-    }*/
 
-    public Producto getProducto() {
-        return producto;
+    public List<Producto> getProducto() {
+        return productos;
     }
 
     public Empresa getEmpresa() {

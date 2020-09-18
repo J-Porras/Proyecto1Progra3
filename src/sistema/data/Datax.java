@@ -5,16 +5,16 @@
  */
 package sistema.data;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlRootElement;
-import logic.Cantones;
 import logic.Cliente;
 import logic.Empresa;
 import logic.Factura;
 import logic.Producto;
-import logic.Provincias;
 
 /**
  *
@@ -23,71 +23,54 @@ import logic.Provincias;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Data {
-    
-    
+public class Datax {
     private List<Cliente> clientes;
-    private List<Producto> productos;
     private Empresa empresa;
+    private List<Producto> productos;
     private List<Factura> facturas;
-    private Cantones cantones;
-    private Provincias provincias;
-   
     
-
-    public Data() {
+    public Datax() {
         this.clientes = new ArrayList<>();
         this.productos = new ArrayList<>();
         this.empresa = new Empresa();
-        this.facturas = new ArrayList<>();
-        this.cantones = new Cantones();
-        this.provincias = new Provincias();
+        facturas = new ArrayList<>();
     }
-
+     
     public List<Cliente> getClientes() {
         return clientes;
     }
     
     
+    public void setClientes(List<Cliente> clientes) {
+       this.clientes = clientes;
+    }
+
+    public Empresa getEmpresa() {
+        if (empresa!=null) {
+            return empresa;
+        }
+        return null;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
     public List<Producto> getProductos() {
         return productos;
     }
 
-    public Empresa getDataEmpresa(){
-        return this.empresa;
-    }
-
-    public List<Factura> getListFacturas() {
-        return facturas;
-    }
-    
-    public Cantones getCantones() {
-        return cantones;
-    }
-
-    public Provincias getProvincias() {
-        return provincias;
-    }
-    
-    
-    
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
-    
-    public void setDataEmpresa(Empresa p){
-        this.empresa = p;
+
+    public List<Factura> getFacturas() {
+        return facturas;
     }
 
-    public void setListFacturas(List<Factura> facturas) {
+    public void setFacturas(List<Factura> facturas) {
         this.facturas = facturas;
     }
-    
-    public void setClientes(List<Cliente> clientes) {
-        this.clientes = clientes;
-    }
-
-    
     
     
 }

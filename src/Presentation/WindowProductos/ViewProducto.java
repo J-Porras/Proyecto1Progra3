@@ -170,9 +170,9 @@ public class ViewProducto extends javax.swing.JFrame implements Observer {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(11, 11, 11)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
@@ -228,12 +228,12 @@ public class ViewProducto extends javax.swing.JFrame implements Observer {
                 throw new EmptySpaceExcep();
             }
             String descripcion = txtNombre.getText();;
-        Double precio = Double.parseDouble(txtPrecio.getText());
-        Producto p = new Producto(descripcion,precio);
-         
-        this.controller.addProducto(p);
-        txtNombre.setText(" ");
-        txtPrecio.setText(" ");
+            Double precio = Double.parseDouble(txtPrecio.getText());
+            Producto p = new Producto(descripcion,precio);
+
+            this.controller.addProducto(p);
+            txtNombre.setText(null);
+            txtPrecio.setText(null);
             
         } 
         catch(EmptySpaceExcep e){

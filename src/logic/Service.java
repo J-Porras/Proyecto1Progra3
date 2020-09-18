@@ -7,6 +7,7 @@ package logic;
 
 import sistema.data.Data;
 import java.util.List;
+import sistema.data.Datax;
 
 
 /**
@@ -17,9 +18,12 @@ public class Service {
     
     private static Service instance;
     Data data;
+    Datax datax;
     
     private Service(){
         data = new Data();
+        datax = new Datax();
+       
     }
     
     public static Service getInstance(){
@@ -30,28 +34,40 @@ public class Service {
     }
     
     public List<Cliente> getListClientes(){
-        return this.data.getClientes();
+        if (this.datax.getClientes()!=null) {
+            return this.datax.getClientes();
+        }
+        return null;
+        
     }
     
-    public void addCliente(Cliente c){
-        this.data.getClientes().add(c);
+    public void addCliente(Cliente c) throws Exception{
+        //this.data.getClientes().add(c);
+        this.datax.getClientes().add(c);
+        logic.XmlPersister.getInstance().store(this.datax);
     }
     
     public List<Producto> getListProductos(){
-        return this.data.getProductos();
+        return this.datax.getProductos();
     }
     
-    public void addProducto(Producto p){
-        this.data.getProductos().add(p);
+    
+    public void addProducto(Producto p) throws Exception{
+        this.datax.getProductos().add(p);
+        logic.XmlPersister.getInstance().store(this.datax);
     }
     
-    public void setDataEmpresa(Empresa emp){
-        this.data.setDataEmpresa(emp);
+    public void setDataEmpresa(Empresa emp) throws Exception{
+        this.datax.setEmpresa(emp);
+        logic.XmlPersister.getInstance().store(this.datax);
         
     }
     
     public Empresa getDataEmpresa(){
-        return this.data.getDataEmpresa();
+        if (this.datax.getEmpresa()!=null) {
+            return this.datax.getEmpresa();
+        }
+        return null;
     }
     
     public Cantones getListCantones(){
@@ -61,4 +77,55 @@ public class Service {
     public Provincias getListProvincias(){
         return this.data.getProvincias();
     }
+    
+    public Cliente getDataCliente(Cliente cliente){
+        Cliente aux;
+        for (int i = 0; i < this.data.getClientes().size(); i++) {
+            aux = data.getClientes().get(i);
+            if (cliente.getID().equals(aux.getID())) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+    
+    public Producto getDataProducto(String codigo){
+        Producto p;
+        for (int i = 0; i < data.getProductos().size(); i++) {
+            p = data.getProductos().get(i);
+            if (p.getCodigo() == codigo) {
+                return p;
+            }
+        }
+        return null;
+    }
+    
+    public float impuestoFactura(int impuesto,List<Producto> productos){
+        float impuestodecimal = impuesto/100;
+        float impuestotal = 0;
+ 
+        for (int i = 0; i < 10; i++) {
+            impuestotal += (productos.get(i).getPrecio()*impuestodecimal);
+        }
+        return impuestotal;
+    }
+    
+    
+    public float subtotal(List<Producto> productos){
+        float subtotal = 0;
+        for (int i = 0; i < 10; i++) {
+            subtotal += (productos.get(i).getPrecio());
+        }
+        return subtotal;
+    }
+    
+    public List<Factura> getFacturas() {
+        return this.data.getListFacturas();
+    }
+    
+    public void setData(Datax datax){
+        this.datax = datax;
+    }
+    
 }
+

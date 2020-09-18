@@ -5,10 +5,14 @@
  */
 package Presentation.WindowFactura;
 
+import Presentation.WindowProductos.ProductoTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.List;
+import logic.Factura;
+import logic.Producto;
 
 /**
  *
@@ -23,9 +27,24 @@ public class ControllerFactura implements ActionListener, MouseListener{
         this.model = facturas_model;
         this.view = facturas_view;
     }
-   public void show(){
+    public void show(){
         view.setVisible(true);
     } 
+   
+    public void initComponents(){
+        this.view.getTableProductos().setModel(new ProductoTableModel(model.getListProductos()));
+    }
+    
+    public void addProdFactura(Producto p){
+        this.model.getProductosFactura().add(p);
+        this.model.commit();
+    }
+    
+    public void nuevaFactura(Factura factura){
+        
+    }
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {}
 

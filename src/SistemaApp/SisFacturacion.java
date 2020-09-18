@@ -27,7 +27,7 @@ public class SisFacturacion {
      * @param args the command line arguments
      */
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
       ControllerApp controller;
       ModelApp model;
       ViewApp view;
@@ -35,6 +35,7 @@ public class SisFacturacion {
       view = new ViewApp();
       controller = new ControllerApp(model,view);
       view.setVisible(true);
+      
     }
     
 }

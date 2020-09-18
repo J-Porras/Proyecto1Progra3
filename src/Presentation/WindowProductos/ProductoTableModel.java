@@ -36,7 +36,7 @@ public class ProductoTableModel extends AbstractTableModel{
     @Override
     public Object getValueAt(int arg0, int arg1) {
         if(arg1==0){
-            return round(p.get(arg0).getCodigo());
+            return p.get(arg0).getCodigo();
         }
         else if (arg1==1){
               return p.get(arg0).getDescripcionProducto();
