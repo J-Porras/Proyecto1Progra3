@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
+import logic.Factura;
 import logic.Producto;
 
 /**
@@ -35,28 +36,12 @@ public class ControllerFactura implements ActionListener, MouseListener{
     }
     
     public void addProdFactura(Producto p){
-        this.model.productosFactura.add(p);
+        this.model.getProductosFactura().add(p);
         this.model.commit();
     }
     
-    public float subtotal(List<Producto> productos){
-        float subtotal = 0;
-        for (int i = 0; i < 10; i++) {
-            subtotal += (productos.get(i).getPrecio());
-        }
-        return subtotal;
-    }
-    
-    
-    
-    public float impuestoFactura(int impuesto,List<Producto> productos){
-        float impuestodecimal = impuesto/100;
-        float impuestotal = 0;
- 
-        for (int i = 0; i < 10; i++) {
-            impuestotal += (productos.get(i).getPrecio()*impuestodecimal);
-        }
-        return impuestotal;
+    public void nuevaFactura(Factura factura){
+        
     }
     
     

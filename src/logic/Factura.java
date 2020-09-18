@@ -61,9 +61,7 @@ public abstract class Factura {
         this.empresa = empresa;
         this.productos = productos;
     }
-    
-    
-    
+
     
     public String getCodigo(){
          return "FA."+codigo;

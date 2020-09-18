@@ -93,6 +93,28 @@ public class Service {
         return null;
     }
     
+    public float impuestoFactura(int impuesto,List<Producto> productos){
+        float impuestodecimal = impuesto/100;
+        float impuestotal = 0;
+ 
+        for (int i = 0; i < 10; i++) {
+            impuestotal += (productos.get(i).getPrecio()*impuestodecimal);
+        }
+        return impuestotal;
+    }
+    
+    
+    public float subtotal(List<Producto> productos){
+        float subtotal = 0;
+        for (int i = 0; i < 10; i++) {
+            subtotal += (productos.get(i).getPrecio());
+        }
+        return subtotal;
+    }
+    
+    public List<Factura> getFacturas() {
+        return this.data.getListFacturas();
+    }
     
 }
 

@@ -16,11 +16,10 @@ import logic.Producto;
  */
 public class ModelFactura extends Observable {
     
-    List<Producto> listProductos;
-    List<Producto> productosFactura;
-    List<Cliente> listclientes;
-    Cliente clienteActual;
-    
+    private List<Producto> listProductos;
+    private List<Producto> productosFactura;
+    private List<Cliente> listclientes;
+    private Cliente clienteActual;
     public ModelFactura (){
         listProductos = logic.Service.getInstance().getListProductos();
         productosFactura = logic.Service.getInstance().getListProductos();
