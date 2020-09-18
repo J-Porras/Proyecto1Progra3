@@ -18,19 +18,21 @@ import javax.xml.bind.annotation.XmlIDREF;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
     
-    private Identificacion ID;
+    @XmlID
+    private String ID;
+    
+    private int tipoID;
     
     private String nombre;
     
     private int numTel;
 
     private Ubicacion ubicacion;
-    
-    
-    
-    public Cliente(String nombre, Identificacion ID, int numTel,Ubicacion ubicacion) {
-        this.nombre = nombre;
+
+    public Cliente(String ID, int tipoID, String nombre, int numTel, Ubicacion ubicacion) {
         this.ID = ID;
+        this.tipoID = tipoID;
+        this.nombre = nombre;
         this.numTel = numTel;
         this.ubicacion = ubicacion;
     }
@@ -39,21 +41,30 @@ public class Cliente {
         
     }
 
-    
-    public String getNombre() {
-        return nombre;
+    public String getID() {
+        return ID;
     }
 
-    public Identificacion getID() {
-        return ID;
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public int getTipoID() {
+        return tipoID;
+    }
+
+    public void setTipoID(int tipoID) {
+        this.tipoID = tipoID;
+    }
+    
+
+    public String getNombre() {
+        return nombre;
     }
 
     public Ubicacion getUbicacion() {
         return ubicacion;
     }
-
-    
-    
     
     public int getNumTel() {
         return numTel;
@@ -61,10 +72,6 @@ public class Cliente {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public void setID(Identificacion ID) {
-        this.ID = ID;
     }
 
     public void setNumTel(int numTel) {
@@ -75,8 +82,4 @@ public class Cliente {
        return nombre.matches(".*\\d.*");
     }
     
-    @XmlID
-    public String getNumID(){
-        return this.ID.getNumero();
-    }
 }

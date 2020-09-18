@@ -159,13 +159,13 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
 
         tableClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Telefono", "Provincia", "Canton"
+                "ID", "tipoID", "Nombre", "numTel", "Provincia", "Canton"
             }
         ));
         jScrollPane1.setViewportView(tableClientes);
@@ -183,8 +183,8 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -210,12 +210,12 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
                                 .addGap(83, 83, 83)
                                 .addComponent(btnAgregar)))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(233, 233, 233))
+                .addGap(216, 216, 216))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,17 +267,23 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         try {
             if (txtNombre1.getText().isEmpty() || txtNumTel.getText().isEmpty() || txt_ID.getText().isEmpty()
-                    || comBoxCanton.getSelectedItem() == null) 
+                    || comBoxCanton.getSelectedItem() == null ) 
             {
                 throw new EmptySpaceExcep();
+            }
+            int tipoID = 0;
+            if (comBoxID.getSelectedItem().equals(0)) {
+                tipoID = 0;
+            }
+            if (comBoxID.getSelectedItem().equals(1)) {
+                tipoID = 1;
             }
             
             int _numero = Integer.parseInt(txtNumTel.getText());
             Ubicacion u = new Ubicacion((String) comBoxProvincia.getSelectedItem(),(String)comBoxCanton.getSelectedItem());
 
-            Identificacion _id = new Identificacion(comBoxID.getSelectedIndex(),txt_ID.getText());
-
-            Cliente c = new Cliente(txtNombre1.getText(), _id, _numero,u);
+            String _id = txt_ID.getText();
+            Cliente c = new Cliente(_id,tipoID,txtNombre1.getText(),_numero,u);
             
             if (c.invalidCharacter()) {
                 throw new CharacterExcep();

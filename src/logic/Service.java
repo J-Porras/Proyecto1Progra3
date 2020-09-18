@@ -75,7 +75,7 @@ public class Service {
         Cliente aux;
         for (int i = 0; i < this.data.getClientes().size(); i++) {
             aux = data.getClientes().get(i);
-            if (cliente.getID().getNumero().equals(aux.getID().getNumero())) {
+            if (cliente.getID().equals(aux.getID())) {
                 return cliente;
             }
         }

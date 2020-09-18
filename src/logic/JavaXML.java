@@ -46,8 +46,8 @@ public class JavaXML extends Factura{
         receptor.addContent(nombre);
         
         Element id = new Element("Identificacion");
-        id.addContent(new Element("Tipo").setText(Integer.toString(cliente.getID().getTipo())));
-        id.addContent(new Element("Numero").setText(cliente.getID().getNumero()));
+        id.addContent(new Element("Tipo").setText(Integer.toString(cliente.getTipoID())));
+        id.addContent(new Element("Numero").setText(cliente.getID()));
         receptor.addContent(id);
         
         Element telefono = new Element("Telefono");

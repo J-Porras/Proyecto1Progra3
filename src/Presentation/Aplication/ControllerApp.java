@@ -53,7 +53,6 @@ public class ControllerApp {
     public void initOptions() {
         cliente_Moddel =  new ModelCliente();
         cliente_View = new ViewCliente();
-       
         cliente_Controller = new ControllerCliente(cliente_Moddel,cliente_View);    
         //Porducto
         producto_model= new ModelProducto();
