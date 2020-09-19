@@ -5,6 +5,7 @@
  */
 package Presentation.WindowFactura;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import logic.Cliente;
@@ -21,9 +22,13 @@ public class ModelFactura extends Observable {
     private List<Cliente> listclientes;
     private Cliente clienteActual;
     public ModelFactura (){
+        
         listProductos = logic.Service.getInstance().getListProductos();
+        productosFactura = new ArrayList<>();
         productosFactura = logic.Service.getInstance().getListProductos();
         listclientes = logic.Service.getInstance().getListClientes();
+        clienteActual = null;
+        
     }  
     
     @Override

@@ -5,6 +5,7 @@
  */
 package Presentation.WindowFactura;
 
+import Presentation.WindowCliente.ClienteTableModel;
 import Presentation.WindowProductos.ProductoTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,6 +27,7 @@ public class ControllerFactura implements ActionListener, MouseListener{
     public ControllerFactura(ModelFactura facturas_model, ViewFactura facturas_view) {
         this.model = facturas_model;
         this.view = facturas_view;
+        initComponents();
     }
     public void show(){
         view.setVisible(true);
@@ -33,17 +35,25 @@ public class ControllerFactura implements ActionListener, MouseListener{
    
     public void initComponents(){
         this.view.getTableProductos().setModel(new ProductoTableModel(model.getListProductos()));
+        this.view.getTableClientes().setModel(new ClienteTableModel(logic.Service.getInstance().getListClientes()));
     }
     
     public void addProdFactura(Producto p){
         this.model.getProductosFactura().add(p);
         this.model.commit();
     }
-    
+    public void addProdFactura(int row){
+        this.model.getProductosFactura().add(this.model.getListProductos().get(row));
+        this.model.commit();
+    }
     public void nuevaFactura(Factura factura){
         
     }
     
+    public void setCurrenteCliente(int row){
+        model.setClienteActual(model.getListclientes().get(row));
+        model.commit();
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {}

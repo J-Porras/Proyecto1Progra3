@@ -60,6 +60,8 @@ public abstract class Factura {
         this.cliente1 = cliente1;
         this.empresa = empresa;
         this.productos = productos;
+        
+      
     }
 
     
