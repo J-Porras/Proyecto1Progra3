@@ -76,6 +76,7 @@ public class ControllerApp {
             facturas_view= new ViewFactura();
             
             facturas_controller = new ControllerFactura(facturas_model,facturas_view);
+            
             fechaActual = new Fecha();
             this.view.getLblFecha().setText(fechaActual.getCurrentDate());
             

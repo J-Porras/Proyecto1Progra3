@@ -45,7 +45,6 @@ public class Cliente {
     
     
     public Cliente() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
@@ -64,6 +63,10 @@ public class Cliente {
 
     public Ubicacion getUbicacion() {
         return ubicacion;
+    }
+
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
     }
  
     

@@ -228,7 +228,7 @@ public class ViewProducto extends javax.swing.JFrame implements Observer {
                 throw new EmptySpaceExcep();
             }
             String descripcion = txtNombre.getText();;
-            Double precio = Double.parseDouble(txtPrecio.getText());
+            int precio = Integer.parseInt(txtPrecio.getText());
             Producto p = new Producto(descripcion,precio);
 
             this.controller.addProducto(p);

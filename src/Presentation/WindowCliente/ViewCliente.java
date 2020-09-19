@@ -295,21 +295,25 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
             if (c.invalidCharacter()) {
                 throw new CharacterExcep();
             }
-            this.controller.addCliente(c);
+            boolean flag = logic.Service.getInstance().isDuplicated(c);
+            if (flag == true) {
+                throw new DataException();
+            }
+            else    
+                this.controller.addCliente(c);
             
             txtNombre1.setText(null);
             txtNumTel.setText(null);
             txt_ID.setText(null);       
         }
-        catch(EmptySpaceExcep e){   
+       /* catch(EmptySpaceExcep e){   
             e.infoError("Error", e,this);
         }
         catch(CharacterExcep e){
             e.infoError("Error", e,this);
-        }
+        }*/
         catch (DataException e) {   
-            DataException panic = new DataException();
-            panic.infoError("Error", panic,this);
+            e.infoError("Usuario Repetido",e,this);
  
         }
         catch (Exception ex) {

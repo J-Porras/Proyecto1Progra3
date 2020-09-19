@@ -39,9 +39,7 @@ public class ControllerCliente implements ActionListener{
      
     public void initComponents(){
        model.setListCliente(logic.Service.getInstance().getListClientes());
-       model.commit();
-       
-        
+       model.commit();  
     }
     
     

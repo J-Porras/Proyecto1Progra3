@@ -39,7 +39,6 @@ public class Service {
     }
     
     public void addCliente(Cliente c) throws Exception{
-        //this.data.getClientes().add(c);
         this.datax.getClientes().add(c);
         logic.XmlPersister.getInstance().store(this.datax);
     }
@@ -75,12 +74,23 @@ public class Service {
         return this.datax.getProvincias();
     }
     
+    public boolean isDuplicated(Cliente cliente){
+        Cliente aux;
+        for (int i = 0; i < this.datax.getClientes().size(); i++) {
+            aux = datax.getClientes().get(i);
+            if (cliente.getID().equals(aux.getID())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public Cliente getDataCliente(Cliente cliente){
         Cliente aux;
         for (int i = 0; i < this.datax.getClientes().size(); i++) {
             aux = datax.getClientes().get(i);
             if (cliente.getID().equals(aux.getID())) {
-                return cliente;
+                return aux;
             }
         }
         return null;
@@ -89,19 +99,19 @@ public class Service {
     public Producto getDataProducto(String codigo){
         Producto p;
         for (int i = 0; i < datax.getProductos().size(); i++) {
-            p = datax.getProductos().get(i);
-            if (p.getCodigo() == codigo) {
+            p = this.datax.getProductos().get(i);
+            if (codigo.equals(p.getCodigo())) {
                 return p;
             }
         }
         return null;
     }
     
-    public float impuestoFactura(int impuesto,List<Producto> productos){
+    public float impuestoFactura(float impuesto,List<Producto> productos){
         float impuestodecimal = impuesto/100;
         float impuestotal = 0;
  
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < productos.size(); i++) {
             impuestotal += (productos.get(i).getPrecio()*impuestodecimal);
         }
         return impuestotal;
@@ -110,7 +120,7 @@ public class Service {
     
     public float subtotal(List<Producto> productos){
         float subtotal = 0;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < productos.size(); i++) {
             subtotal += (productos.get(i).getPrecio());
         }
         return subtotal;

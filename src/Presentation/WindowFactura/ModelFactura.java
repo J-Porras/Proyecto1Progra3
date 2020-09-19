@@ -21,14 +21,12 @@ public class ModelFactura extends Observable {
     private List<Producto> productosFactura;
     private List<Cliente> listclientes;
     private Cliente clienteActual;
+    
     public ModelFactura (){
-        
         listProductos = logic.Service.getInstance().getListProductos();
-        productosFactura = new ArrayList<>();
-        productosFactura = logic.Service.getInstance().getListProductos();
-        listclientes = logic.Service.getInstance().getListClientes();
-        clienteActual = null;
-        
+        //productosFactura = new ArrayList<>();
+        listclientes = logic.Service.getInstance().getListClientes(); 
+        clienteActual = new Cliente();
     }  
     
     @Override
@@ -68,6 +66,7 @@ public class ModelFactura extends Observable {
 
     public void setClienteActual(Cliente clienteActual) {
         this.clienteActual = clienteActual;
+       // this.commit();
     }
 
     public List<Producto> getProductosFactura() {

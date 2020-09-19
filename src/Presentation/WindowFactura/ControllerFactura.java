@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
+import logic.Cliente;
 import logic.Factura;
 import logic.Producto;
 
@@ -40,11 +41,12 @@ public class ControllerFactura implements ActionListener, MouseListener{
     
     public void addProdFactura(Producto p){
         this.model.getProductosFactura().add(p);
+        this.view.getTableProductosFac().setModel(new ProductoTableModel(model.getProductosFactura()));
         this.model.commit();
     }
     public void addProdFactura(int row){
-        this.model.getProductosFactura().add(this.model.getListProductos().get(row));
-        this.model.commit();
+        
+        
     }
     public void nuevaFactura(Factura factura){
         
@@ -55,8 +57,15 @@ public class ControllerFactura implements ActionListener, MouseListener{
         model.commit();
     }
     
+    public void setCurrenteCliente(Cliente cliente){
+        model.setClienteActual(cliente);
+    }
+    
     @Override
-    public void actionPerformed(ActionEvent e) {}
+    public void actionPerformed(ActionEvent e) {
+
+    
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {}

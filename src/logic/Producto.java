@@ -8,7 +8,7 @@ package logic;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlID;
-
+import java.util.concurrent.ThreadLocalRandom;
 /**
  *
  * @author pgat3000
@@ -25,7 +25,8 @@ public class Producto {
 
     public Producto(String DescripcionProducto, double precio) {
         this.DescripcionProducto = DescripcionProducto;
-        this.Codigo =  Double.toString((Math.random() * ((19999-10000) + 1)) + 10000);
+        this.Codigo =  Integer.toString(ThreadLocalRandom.current().nextInt(1, 10000 + 1));
+        //int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
         this.precio = precio;
     }
 
