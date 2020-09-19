@@ -26,6 +26,11 @@ public class Ubicacion {
         this.canton = canton;  
     }
 
+    public Ubicacion(){
+    
+    }
+    
+    
     public String getProvincia() {
         return provincia;
     }

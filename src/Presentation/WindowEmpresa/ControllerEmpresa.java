@@ -28,7 +28,7 @@ public class ControllerEmpresa implements ActionListener {
 
     public void initComponents(){
         if (logic.Service.getInstance().getDataEmpresa()!=null) {
-            view.getLblID().setText(logic.Service.getInstance().getDataEmpresa().getIDJurid());
+            model.commit();
         }
         
     }

@@ -21,7 +21,7 @@ public class Service {
     Datax datax;
     
     private Service(){
-        data = new Data();
+       // data = new Data();
         datax = new Datax();
        
     }
@@ -34,10 +34,7 @@ public class Service {
     }
     
     public List<Cliente> getListClientes(){
-        if (this.datax.getClientes()!=null) {
-            return this.datax.getClientes();
-        }
-        return null;
+       return this.datax.getClientes();
         
     }
     
@@ -71,17 +68,17 @@ public class Service {
     }
     
     public Cantones getListCantones(){
-        return this.data.getCantones();
+        return this.datax.getCantones();
     }
     
     public Provincias getListProvincias(){
-        return this.data.getProvincias();
+        return this.datax.getProvincias();
     }
     
     public Cliente getDataCliente(Cliente cliente){
         Cliente aux;
-        for (int i = 0; i < this.data.getClientes().size(); i++) {
-            aux = data.getClientes().get(i);
+        for (int i = 0; i < this.datax.getClientes().size(); i++) {
+            aux = datax.getClientes().get(i);
             if (cliente.getID().equals(aux.getID())) {
                 return cliente;
             }
@@ -91,8 +88,8 @@ public class Service {
     
     public Producto getDataProducto(String codigo){
         Producto p;
-        for (int i = 0; i < data.getProductos().size(); i++) {
-            p = data.getProductos().get(i);
+        for (int i = 0; i < datax.getProductos().size(); i++) {
+            p = datax.getProductos().get(i);
             if (p.getCodigo() == codigo) {
                 return p;
             }
@@ -120,7 +117,7 @@ public class Service {
     }
     
     public List<Factura> getFacturas() {
-        return this.data.getListFacturas();
+        return this.datax.getListFacturas();
     }
     
     public void setData(Datax datax){

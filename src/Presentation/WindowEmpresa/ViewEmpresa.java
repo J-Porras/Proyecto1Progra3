@@ -34,8 +34,11 @@ public class ViewEmpresa extends javax.swing.JFrame implements Observer{
     }
     
     public void update(Observable updatedmOdel, Object param){
-        //no hay nada que actualizar porque la pantalla
-        //sera solo para entrada de datos de la empresa
+        this.getLblNombre().setText(logic.Service.getInstance().getDataEmpresa().getNomEmpresa());
+        this.getLblID().setText(logic.Service.getInstance().getDataEmpresa().getIDJurid());
+        this.getLblDirecc().setText(logic.Service.getInstance().getDataEmpresa().getDireccion());
+        this.getLblNum().setText(Integer.toString(logic.Service.getInstance().getDataEmpresa().getNumTelefono()));
+        this.getLblPag().setText(logic.Service.getInstance().getDataEmpresa().getPagWeb());
     }
     
     void setModel(ModelEmpresa model) {
@@ -110,7 +113,7 @@ public class ViewEmpresa extends javax.swing.JFrame implements Observer{
 
         jLabel5.setText("Dir. Pagina web");
 
-        jLabel6.setText("Inserte los datos de la empresa");
+        jLabel6.setText("Actualizar los datos de la empresa");
 
         btnExit.setText("Salir");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -170,20 +173,14 @@ public class ViewEmpresa extends javax.swing.JFrame implements Observer{
                                     .addComponent(txtCedJurid)
                                     .addComponent(txtNomEmpresa)
                                     .addComponent(txtDirPagWeb, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(103, 103, 103)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblPag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(lblNum, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(109, 109, 109))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblDirecc, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(67, 67, 67))))))
+                            .addComponent(lblNum, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDirecc, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(71, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,8 +208,9 @@ public class ViewEmpresa extends javax.swing.JFrame implements Observer{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(txtNumTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNum))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtNumTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNum)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)

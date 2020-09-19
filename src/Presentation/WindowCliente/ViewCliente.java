@@ -9,6 +9,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import logic.Cliente;
 import logic.Identificacion;
@@ -81,8 +82,12 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
         this.controller = controller ;
         this.comBoxProvincia.addActionListener(controller);
     }
+
+    public JTable getTableClientes() {
+        return tableClientes;
+    }
     
-    
+   
     
     
     /**

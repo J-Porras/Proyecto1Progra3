@@ -75,25 +75,15 @@
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="107" pref="107" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblNombre" max="32767" attributes="0"/>
-                                      <Component id="lblID" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblPag" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblNum" alignment="1" min="-2" pref="128" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="lblDirecc" min="-2" pref="170" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblNum" min="-2" pref="128" max="-2" attributes="0"/>
+                          <Component id="lblDirecc" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="lblPag" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblID" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblNombre" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace pref="71" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -130,8 +120,10 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNumTel" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNum" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtNumTel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -193,7 +185,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Inserte los datos de la empresa"/>
+        <Property name="text" type="java.lang.String" value="Actualizar los datos de la empresa"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnExit">

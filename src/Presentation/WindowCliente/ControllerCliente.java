@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 import logic.*;
 
 /**
@@ -26,19 +27,24 @@ public class ControllerCliente implements ActionListener{
     public ControllerCliente(ModelCliente model, ViewCliente view) {
         this.model = model;
         this.view = view;
-       /* if (logic.Service.getInstance().getListClientes()!=null) {
-            model.setListCliente(logic.Service.getInstance().getListClientes());
-        }*/
-       
         view.setModel(model);
         view.setController(this);
         view.getComBoxProvincia().setModel(new DefaultComboBoxModel(logic.Service.getInstance().getListProvincias().getProvincias()));
+        initComponents();
     }
     
     public void show(){
         view.setVisible(true);
     }
      
+    public void initComponents(){
+       model.setListCliente(logic.Service.getInstance().getListClientes());
+       model.commit();
+       
+        
+    }
+    
+    
      
     @Override
     public void actionPerformed(ActionEvent evento){
