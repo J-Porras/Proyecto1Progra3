@@ -17,9 +17,6 @@ import javax.xml.bind.annotation.XmlIDREF;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
     
-   // @XmlIDREF
-   // private Identificacion ID;
-    
     @XmlID
     private String ID;
     
