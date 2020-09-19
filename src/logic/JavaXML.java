@@ -18,7 +18,10 @@ import org.jdom2.output.XMLOutputter;
 
 
 /**
- *
+ * 
+ * -----------------------
+ * NO USAR 
+ *--------------------
  * @author Porras
  */
 public class JavaXML extends Factura{

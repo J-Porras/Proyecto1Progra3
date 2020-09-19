@@ -539,8 +539,8 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
     private void btnFinalizarFacturActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarFacturActionPerformed
         // TODO add your handling code here:
         try {
-            float total = logic.Service.getInstance().impuestoFactura(13, model.getProductosFactura()) + 
-                    logic.Service.getInstance().subtotal(model.getProductosFactura());
+            float total = logic.Service.getInstance().impuestoFactura(13, productos) + 
+                        logic.Service.getInstance().subtotal(productos);
 
             String formaPago = null;
             if (rdbtnTarjeta.isSelected()) {
@@ -552,9 +552,13 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
             else   
                 throw new EmptySpaceExcep();
             
-            Factura factura = new FacturaPDF(Integer.toString(logic.Service.getInstance().getFacturas().size()),total,model.getProductosFactura().size(),
-            formaPago,model.getClienteActual(),logic.Service.getInstance().getDataEmpresa(),model.getProductosFactura());
-            factura.crearFactura();
+            Factura facturaPDF = new FacturaPDF(Integer.toString(logic.Service.getInstance().getFacturas().size()),total,productos.size(),
+            formaPago,currentCliente,logic.Service.getInstance().getDataEmpresa(),productos);
+            facturaPDF.crearFactura();
+            
+            Factura facturaXML = new FacturaPDF(Integer.toString(logic.Service.getInstance().getFacturas().size()),total,productos.size(),
+            formaPago,currentCliente,logic.Service.getInstance().getDataEmpresa(),productos);
+            facturaXML.crearFactura();
             
         }
         catch(EmptySpaceExcep e){
