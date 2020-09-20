@@ -14,6 +14,7 @@ import javax.swing.JTable;
 import logic.Cliente;
 import logic.Factura;
 import logic.FacturaPDF;
+import logic.FacturaXML;
 import logic.Identificacion;
 import logic.Producto;
 import sistema.errors.CharacterExcep;
@@ -556,7 +557,12 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
             formaPago,currentCliente,logic.Service.getInstance().getDataEmpresa(),productos);
             facturaPDF.crearFactura();
             
-            Factura facturaXML = new FacturaPDF(Integer.toString(logic.Service.getInstance().getFacturas().size()),total,productos.size(),
+            Factura current;
+            current = new Factura(Integer.toString(logic.Service.getInstance().getFacturas().size()),total,productos.size(),
+                    formaPago,currentCliente,logic.Service.getInstance().getDataEmpresa(),productos);
+            
+            
+            Factura facturaXML = new FacturaXML(current, Integer.toString(logic.Service.getInstance().getFacturas().size()),total,productos.size(),
             formaPago,currentCliente,logic.Service.getInstance().getDataEmpresa(),productos);
             facturaXML.crearFactura();
             

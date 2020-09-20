@@ -100,7 +100,10 @@ public class ControllerCliente implements ActionListener{
     }
     
     public void addCliente(Cliente c) throws Exception{
+        //xml
         logic.Service.getInstance().addCliente(c);
+        
+        //view
         model.setListCliente(logic.Service.getInstance().getListClientes());
         model.commit();
     }

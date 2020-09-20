@@ -5,20 +5,22 @@
  */
 package logic;
 
+import java.time.LocalDate;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author pg300
  */
-
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 //para serializar campos
-public abstract class Factura {
+public class Factura {
     @XmlID
     protected String codigo;
     
@@ -42,10 +44,14 @@ public abstract class Factura {
     protected List<Producto> productos;
     
     
-    public abstract void  crearFactura();
+    public void crearFactura(){}
     
     //definicion de constructor
 
+    public Factura() {}
+
+    
+    
     public Factura(String codigo, double total, int cantidadProducto, String formaDePago,
             Cliente cliente1, Empresa empresa, 
             List<Producto> productos) 
@@ -61,7 +67,13 @@ public abstract class Factura {
         this.empresa = empresa;
         this.productos = productos;
         
-      
+        diaActual.setDia(LocalDate.now().getDayOfMonth());
+        diaActual.setMes(LocalDate.now().getMonthValue());
+        diaActual.setAnio(LocalDate.now().getYear());
+        fechaVencimiento.setDia(LocalDate.now().plusYears(1).getDayOfMonth());
+        fechaVencimiento.setMes(LocalDate.now().plusYears(1).getMonthValue());
+        fechaVencimiento.setAnio(LocalDate.now().plusYears(1).getYear());
+
     }
 
     
