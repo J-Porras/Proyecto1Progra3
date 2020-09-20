@@ -43,6 +43,12 @@ public class Service {
         logic.XmlPersister.getInstance().store(this.datax);
     }
     
+    //recien hecho
+    public void addFactura(Factura f) throws Exception{
+        this.data.getListFacturas().add(f);
+        logic.XmlPersister.getInstance().store(this.datax);
+    }
+    
     public List<Producto> getListProductos(){
         return this.datax.getProductos();
     }

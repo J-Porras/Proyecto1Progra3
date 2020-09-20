@@ -45,8 +45,9 @@ public class ControllerFactura implements ActionListener, MouseListener{
         this.model.commit();
     }
     public void addProdFactura(int row){
-        
-        
+//        logic.Service.getInstance().addCliente(c);
+//        model.setFacturas(logic.Service.getInstance().getFacturas());
+//        model.commit();        
     }
     public void nuevaFactura(Factura factura){
         

@@ -34,6 +34,7 @@ public class Datax {
     private Provincias provincias;
     
     public Datax() {
+        //se llena con datos en ejecución
         this.clientes = new ArrayList<>();
         this.productos = new ArrayList<>();
         this.empresa = new Empresa();

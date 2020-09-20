@@ -61,10 +61,8 @@ public class XmlPersister{
         Marshaller marshaller = jaxbContext.createMarshaller();
         marshaller.marshal(datax,out);
         out.flush();
-        out.close();
-        
-    }
-    
+        out.close();        
+    }   
     
     
 }
