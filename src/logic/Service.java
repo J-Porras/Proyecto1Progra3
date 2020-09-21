@@ -17,11 +17,9 @@ import sistema.data.Datax;
 public class Service {
     
     private static Service instance;
-    Data data;
     Datax datax;
     
     private Service(){
-       // data = new Data();
         datax = new Datax();
        
     }
@@ -45,7 +43,7 @@ public class Service {
     
     //recien hecho
     public void addFactura(Factura f) throws Exception{
-        this.data.getListFacturas().add(f);
+        this.datax.getListFacturas().add(f);
         logic.XmlPersister.getInstance().store(this.datax);
     }
     

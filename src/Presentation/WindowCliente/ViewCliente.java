@@ -306,12 +306,12 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
             txtNumTel.setText(null);
             txt_ID.setText(null);       
         }
-       /* catch(EmptySpaceExcep e){   
+        catch(EmptySpaceExcep e){   
             e.infoError("Error", e,this);
         }
         catch(CharacterExcep e){
             e.infoError("Error", e,this);
-        }*/
+        }
         catch (DataException e) {   
             e.infoError("Usuario Repetido",e,this);
  

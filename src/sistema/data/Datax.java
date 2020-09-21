@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlRootElement;
 import logic.Cantones;
 import logic.Cliente;
@@ -38,11 +37,12 @@ public class Datax {
         this.clientes = new ArrayList<>();
         this.productos = new ArrayList<>();
         this.empresa = new Empresa();
-        facturas = new ArrayList<>();
+        this.facturas = new ArrayList<>();
         this.cantones = new Cantones();
         this.provincias = new Provincias();
     }
-     
+    
+    
     public List<Cliente> getClientes() {
         return clientes;
     }
@@ -71,10 +71,9 @@ public class Datax {
         this.productos = productos;
     }
 
-    public List<Factura> getFacturas() {
+    public List<Factura> getListFacturas() {
         return facturas;
     }
-
     public void setFacturas(List<Factura> facturas) {
         this.facturas = facturas;
     }
@@ -87,8 +86,8 @@ public class Datax {
         return provincias;
     }
     
-    public List<Factura> getListFacturas() {
-        return facturas;
-    }
+    
+    
+    
     
 }

@@ -46,7 +46,7 @@ public class FacturaPDF extends Factura{
     public void initPDF(){
         
         try {
-            PdfWriter writer = PdfWriter.getInstance(docPdf, new FileOutputStream(this.getCodigo()+".pdf"));
+            PdfWriter writer = PdfWriter.getInstance(docPdf, new FileOutputStream("Fa."+this.getCodigo()+".pdf"));
             docPdf.open();
             
             docPdf.add(new Paragraph(this.empresa.getNomEmpresa()));
@@ -62,19 +62,19 @@ public class FacturaPDF extends Factura{
             docPdf.add(new Paragraph("Fecha de Vencimiento: " + fechaVencimiento.getPlusDays(365)));
             
              docPdf.add(new Paragraph("Datos del receptor: "));
-            docPdf.add(new Paragraph("Nombre: " + cliente1.getNombre()));
+            docPdf.add(new Paragraph("Nombre: " + cliente.getNombre()));
             
-            if (cliente1.getTipoID() ==0) {
-                docPdf.add(new Paragraph("Cédula Física: " + cliente1.getID()));
+            if (cliente.getTipoID() ==0) {
+                docPdf.add(new Paragraph("Cédula Física: " + cliente.getID()));
                 
             }
-            if (cliente1.getTipoID() == 1) {
-                docPdf.add(new Paragraph("Cédula Jurídica: " + cliente1.getID()));
+            if (cliente.getTipoID() == 1) {
+                docPdf.add(new Paragraph("Cédula Jurídica: " + cliente.getID()));
             }
             else
-                docPdf.add(new Paragraph("Identificación: " + cliente1.getID()));
+                docPdf.add(new Paragraph("Identificación: " + cliente.getID()));
             
-            docPdf.add(new Paragraph("Teléfono: " +  Integer.toString(cliente1.getNumTel())));
+            docPdf.add(new Paragraph("Teléfono: " +  Integer.toString(cliente.getNumTel())));
             PdfPTable table = new PdfPTable(3);
             table.setWidthPercentage(100); //Width 100%
             table.setSpacingBefore(10f); //Space before table

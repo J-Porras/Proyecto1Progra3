@@ -7,10 +7,10 @@ package logic;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import sistema.data.Data;
 import sistema.data.Datax;
 
 /**
@@ -25,7 +25,7 @@ public class XmlPersister{
     public static XmlPersister getInstance(){
         if (Instance==null) {
             Instance = new XmlPersister();
-            Instance.setPath("data.xml");
+            Instance.setPath("Data.xml");
             return Instance;
         }
         return Instance;
@@ -52,7 +52,7 @@ public class XmlPersister{
             in.close();
             return result; 
         }
-        return null; 
+        return new Datax(); 
     }
     
     public void store(Datax datax) throws Exception{
@@ -62,7 +62,5 @@ public class XmlPersister{
         marshaller.marshal(datax,out);
         out.flush();
         out.close();        
-    }   
-    
-    
+    }
 }

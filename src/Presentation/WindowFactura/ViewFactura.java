@@ -17,6 +17,7 @@ import logic.FacturaPDF;
 import logic.FacturaXML;
 import logic.Identificacion;
 import logic.Producto;
+import logic.Xmlhacienda;
 import sistema.errors.CharacterExcep;
 import sistema.errors.DataException;
 import sistema.errors.EmptySpaceExcep;
@@ -35,11 +36,14 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
     ControllerFactura controller;
     List<Producto> productos;
     Cliente currentCliente;
+    List<Factura> facturas;
+    
     public ViewFactura() {
         initComponents();
         tableClientes.addMouseListener(controller);
         tableProductos.addMouseListener(controller);
         productos = new ArrayList<>();
+        facturas = new ArrayList<>();
   
         
     }
@@ -527,8 +531,8 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
         catch(DataException e){
             e.infoError("Error", e, this);
         }
-        /*catch (Exception e) {
-        }*/
+        catch (Exception e) {
+        }
         
     }//GEN-LAST:event_addProducActionPerformed
 
@@ -553,19 +557,29 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
             else   
                 throw new EmptySpaceExcep();
             
-            Factura facturaPDF = new FacturaPDF(Integer.toString(logic.Service.getInstance().getFacturas().size()),total,productos.size(),
-            formaPago,currentCliente,logic.Service.getInstance().getDataEmpresa(),productos);
-            facturaPDF.crearFactura();
-            
             Factura current;
             current = new Factura(Integer.toString(logic.Service.getInstance().getFacturas().size()),total,productos.size(),
                     formaPago,currentCliente,logic.Service.getInstance().getDataEmpresa(),productos);
             
+            logic.Service.getInstance().addFactura(current);
             
-            Factura facturaXML = new FacturaXML(current, Integer.toString(logic.Service.getInstance().getFacturas().size()),total,productos.size(),
+            
+            
+            Factura facturaPDF = new FacturaPDF(Integer.toString(logic.Service.getInstance().getFacturas().size()),total,productos.size(),
             formaPago,currentCliente,logic.Service.getInstance().getDataEmpresa(),productos);
-            facturaXML.crearFactura();
+            facturaPDF.crearFactura(); 
             
+            
+            
+            Factura Xmlhacienda = new Xmlhacienda(Integer.toString(logic.Service.getInstance().getFacturas().size()),total,productos.size(),
+            formaPago,currentCliente,logic.Service.getInstance().getDataEmpresa(),productos);
+            
+ 
+            //Xmlhacienda.crearFactura();
+            
+        }
+        catch(CharacterExcep e){
+            e.infoError("Error", e, this);
         }
         catch(EmptySpaceExcep e){
             e.infoError("Error", e, this);

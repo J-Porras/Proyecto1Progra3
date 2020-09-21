@@ -12,15 +12,19 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlRootElement;
+import sistema.errors.CharacterExcep;
+import sistema.errors.EmptySpaceExcep;
+
 
 /**
  *
  * @author pg300
  */
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-//para serializar campos
 public class Factura {
+    
     @XmlID
     protected String codigo;
     
@@ -28,32 +32,24 @@ public class Factura {
     protected double total;
     protected int cantidadProducto;
     protected String formaDePago;
-    //protected String claveElectronica;
-    //protected String NumeroFacturaElectronica;
-    //protected int Plazo;
     
     // atributos no primitivos
     protected Fecha fechaVencimiento;
     protected Fecha diaActual;
     @XmlIDREF
-    protected Cliente cliente1;
+    protected Cliente cliente;
     @XmlIDREF
     protected Empresa empresa;
-    //Lista Productos??
     @XmlIDREF
     protected List<Producto> productos;
     
     
-    public void crearFactura(){}
-    
-    //definicion de constructor
-
-    public Factura() {}
+   
 
     
     
     public Factura(String codigo, double total, int cantidadProducto, String formaDePago,
-            Cliente cliente1, Empresa empresa, 
+            Cliente cliente, Empresa empresa, 
             List<Producto> productos) 
     {
         this.codigo = codigo;
@@ -63,7 +59,7 @@ public class Factura {
         this.fechaVencimiento = new Fecha();
         
         this.diaActual = new Fecha();
-        this.cliente1 = cliente1;
+        this.cliente = cliente;
         this.empresa = empresa;
         this.productos = productos;
         
@@ -75,10 +71,18 @@ public class Factura {
         fechaVencimiento.setAnio(LocalDate.now().plusYears(1).getYear());
 
     }
+    
+    public void crearFactura() throws CharacterExcep{
+    
+    }
+    
+    //definicion de constructor
 
+    public Factura() {
+    }
     
     public String getCodigo(){
-         return "FA."+codigo;
+         return codigo;
     } 
 
     public double getTotal() {
@@ -102,7 +106,7 @@ public class Factura {
     }
 
     public Cliente getCliente1() {
-        return cliente1;
+        return cliente;
     }
 
 

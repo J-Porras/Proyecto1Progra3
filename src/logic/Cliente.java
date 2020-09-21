@@ -8,9 +8,8 @@ package logic;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlIDREF;
 
-/**z|
+/**
  *
  * @author Porras
  */
@@ -37,10 +36,6 @@ public class Cliente {
         this.ubicacion = ubicacion;
     }
 
-    
-    
-    
-    
     public Cliente() {
     }
 
