@@ -9,6 +9,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import logic.Cliente;
@@ -297,10 +298,15 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
             }
             boolean flag = logic.Service.getInstance().isDuplicated(c);
             if (flag == true) {
-                throw new DataException();
+                throw new DataException("Usuario Repetido");
             }
             else    
                 this.controller.addCliente(c);
+            
+            JOptionPane message_window = new JOptionPane();
+            message_window.showMessageDialog(this, "Usuario creado", "Alert: ", JOptionPane.INFORMATION_MESSAGE);
+            message_window.setVisible(true);
+            
             
             txtNombre1.setText(null);
             txtNumTel.setText(null);
@@ -313,7 +319,7 @@ public class ViewCliente extends javax.swing.JFrame implements Observer{
             e.infoError("Error", e,this);
         }
         catch (DataException e) {   
-            e.infoError("Usuario Repetido",e,this);
+            e.infoError("Error",e,this);
  
         }
         catch (Exception ex) {

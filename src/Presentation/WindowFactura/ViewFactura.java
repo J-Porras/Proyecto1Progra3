@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import logic.Cliente;
 import logic.Factura;
@@ -575,7 +576,11 @@ public class ViewFactura extends javax.swing.JFrame implements Observer{
             formaPago,currentCliente,logic.Service.getInstance().getDataEmpresa(),productos);
             
  
-            //Xmlhacienda.crearFactura();
+            Xmlhacienda.crearFactura();
+            
+            JOptionPane message_window = new JOptionPane();
+            message_window.showMessageDialog(this, "Factura PDF y XML creada", "Alert: ", JOptionPane.INFORMATION_MESSAGE);
+            message_window.setVisible(true);
             
         }
         catch(CharacterExcep e){

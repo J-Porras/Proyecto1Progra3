@@ -11,162 +11,138 @@ package logic;
  */
 
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.output.Format;
-import org.jdom2.output.XMLOutputter;
 import sistema.errors.CharacterExcep;
-import sistema.errors.EmptySpaceExcep;
+import java.io.BufferedWriter;
+import java.io.File;
+
 
 
 public class Xmlhacienda extends Factura{
-
+ String ruta = ("Fa"+this.codigo+".txt");
+   
     public Xmlhacienda(String codigo, double total, int cantidadProducto, String formaDePago,
             Cliente cliente1, Empresa empresa, List<Producto> productos)
     {
         super(codigo, total, cantidadProducto, formaDePago,cliente1, empresa, productos);
     }
     
+    
+    
+    public String ForamtoXml(String b, String centro, int tab){
+        String salida = "<"+b+">"+centro+"</"+b+">";
+        for(int i = 0;i<tab;i++){
+            salida = "\t"+salida;
+        }
+        return (salida+"\n");
+    }
+
     @Override
     public void crearFactura() throws CharacterExcep{
         
-        FileWriter writer = null;
+        File file = null;
         try {
-            Document document = new Document();
-            Element root = null;
-            root = new Element("FacturaEletronica");
-            document.setRootElement(root);
-            ////Datos emisor
+            file = new File(ruta);
             
-            Element emisor = new Element("Emisor");
-            Element nomEmpresa = new Element("Nombre");
-            emisor.addContent(nomEmpresa);
-            Element id = new Element("Identificacion");
-            id.addContent(new Element("Tipo").setText("1"));
-            id.addContent(new Element("Numero").setText(empresa.getIDJurid()));
-            emisor.addContent(id);
-            Element direccion = new Element("OtrasSenas").setText(empresa.getDireccion());
-            emisor.addContent(direccion);
-            Element telefono = new Element("Telefono");
-            telefono.addContent(new  Element("CodigoPais").setText("506"));
-            telefono.addContent(new  Element("NumTelefono").setText(Integer.toString(empresa.getNumTelefono())));
-            emisor.addContent(telefono);
-            Element pagweb = new Element("PaginaWeb").setText(empresa.getPagWeb());
-            emisor.addContent(pagweb);
-            root.addContent(emisor);
-            
-            /////////////////////////Receptor
-            Element receptor = new Element("Receptor");
-            Element nombreCliente = new Element("Nombre");
-            nombreCliente.setText(cliente.getNombre());
-            receptor.addContent(nombreCliente);
-            Element idCliente = new Element("Identificacion");
-            idCliente.addContent(new Element("Tipo").setText(Integer.toString(cliente.getTipoID())));
-            idCliente.addContent(new Element("Numero").setText(cliente.getID()));
-            receptor.addContent(idCliente);
-            Element telefonoCliente = new Element("Telefono");
-            telefonoCliente.addContent(new Element("CodigoPais").setText("506"));
-            telefonoCliente.addContent(new  Element("NumTelefono").setText(Integer.toString(cliente.getNumTel())));
-            receptor.addContent(telefonoCliente);
-            
-            
-            Element direccionCliente = new Element("Direccion");
-            direccionCliente.addContent(new Element("Provincia").setText(cliente.getUbicacion().getProvincia()));
-         
-            direccionCliente.addContent(new Element("Canton").setText(cliente.getUbicacion().getCanton()));
-          
-           
-            receptor.addContent(direccionCliente);
-          
-            root.addContent(receptor);
-           
-     
-            
-
-            
-           Element condicionVenta = new Element("CondicionVenta").setText("1");
-            
-            root.addContent(condicionVenta);
-            
-            
-            if ("Efectivo".equals(this.formaDePago)) {
-            
-                Element medioPago = new Element("MedioPago").setText("1");
-                root.addContent(medioPago);
-                
-            }   if ("Tarjeta".equals(this.formaDePago)) {
-                Element medioPago = new Element("MedioPago").setText("2");
-                root.addContent(medioPago);
+            if (!file.exists()) 
+            {
+                file.createNewFile();
             }
+
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter xml = new BufferedWriter(fw);
+            xml.write("<FacturaElectronica>\n");
+            
+            /*        
+            diaActual.setDia(LocalDate.now().getDayOfMonth());                                                   
+            diaActual.setMes(LocalDate.now().getMonthValue());
+            diaActual.setAnio(LocalDate.now().getYear());
+            */
             
             
-             
-            Element detalleServicio = new Element("DetalleServicio");
+            ////Datos emisor
+            String nomEmpres = this.empresa.getNomEmpresa();
+            xml.write("\t<Emisor>\n");
+            xml.write("\t  <Nombre>"+nomEmpres+"</Nombre>\n");
+            xml.write("\t  <Identificacion>\n");
+            xml.write("\t    <Tipo>01</Tipo>\n");
+            xml.write("\t    <Numero>"+empresa.getIDJurid()+"</Numero>\n");
+            xml.write("\t  </Identificacion>\n");
+            xml.write("\t  <Ubicacion>\n");
+            xml.write("\t\t <OtrasSenas>"+empresa.getDireccion()+" </OtrasSenas>\n");
+            xml.write("\t  </Ubicacion>\n"); 
+            xml.write("\t  <Telefono>\n");
+            xml.write("\t    <CodigoPais>506</CodigoPais>\n");
+            xml.write("\t    <NumTelefono>"+Integer.toString(empresa.getNumTelefono())+"</NumTelefono>\n");
+            xml.write("\t  </Telefono>\n");
+            xml.write(ForamtoXml("PaginaWeb",empresa.getPagWeb(),1));
+            xml.write("\t</Emisor>\n");
             
             
-            
+            ////////////////////////Receptor  
+            xml.write("\t<Receptor>\n");
+            xml.write(ForamtoXml("Nombre",cliente.getNombre(),1));
+            xml.write(ForamtoXml("Nombre",cliente.getNombre(),1));
+            xml.write("\t  <Identificacion>\n");
+            xml.write("\t    <Tipo>01</Tipo>\n");
+            xml.write("\t    <Numero>"+Integer.toString(cliente.getTipoID())+"</Numero>\n");
+            xml.write("\t  </Identificacion>\n");
+            xml.write("\t  <Telefono>\n");
+            xml.write("\t    <CodigoPais>506</CodigoPais>\n");
+            xml.write("\t    <NumTelefono>"+Integer.toString(cliente.getNumTel())+"</NumTelefono>\n");
+            xml.write("\t  </Telefono>\n");
+            xml.write("\t  <Direccion>\n");
+            xml.write(ForamtoXml("Provincia",cliente.getUbicacion().getProvincia(),1));
+            xml.write(ForamtoXml("Canton",cliente.getUbicacion().getCanton(),1));
+
+            xml.write("\t  </Direccion>\n");
+            xml.write("\t</Receptor>\n");
+
+            xml.write("\t  <CondiCionVenta>\n");
+            if ("Efectivo".equals(this.formaDePago)) 
+            {
+                xml.write(ForamtoXml("MedioPago","1",1)); 
+            }   
+            if ("Tarjeta".equals(this.formaDePago)) 
+            {
+                xml.write(ForamtoXml("MedioPago","2",1));
+            }
+            xml.write("\t  </CondiCionVenta>\n");
+            xml.write("\t  <DetalleServicio>\n");
             
             for (int i = 0; i < productos.size(); i++) {
-                
-                
                 Producto p = productos.get(i);
-                Element lineaDetalle = new Element("NumeroLinea" + Integer.toString(i+1));
-                
-                Element codigoComercial = new Element("CodigoComercial");
-                Element codigoProducto = new Element("Codigo").setText(p.getCodigo());
-                codigoComercial.addContent(codigoProducto);
-                lineaDetalle.addContent(codigoComercial);
-                
-                Element cantidad = new Element("Cantidad").setText("1");
-                lineaDetalle.addContent(cantidad);
-                
-                Element unidadMedida = new Element("UnidadMedida").setText("Unid");
-                lineaDetalle.addContent(unidadMedida);
-                
-                Element detalle = new Element("Detalle").setText(p.getDescripcionProducto());
-                lineaDetalle.addContent(detalle);
-                
-                Element precioUnitario = new Element("PrecioUnitario").setText(Double.toString(p.getPrecio()));
-                lineaDetalle.addContent(precioUnitario);
-                
-                Element MontoTotal = new Element("MontoTotal").setText(Double.toString(p.getPrecio()));
-                lineaDetalle.addContent(MontoTotal);
-                
-                Element Impuesto = new Element("Impuesto");
-                
-                
-                Element tarifa = new Element("Tarifa").setText("13");
+                xml.write("\t  <LineaDetalle>\n");  
+                xml.write(ForamtoXml("NumeroLinea",String.valueOf(i+1),1));      
+                xml.write("\t  <CodigoComercial>\n");
+                xml.write(ForamtoXml("Codigo",String.valueOf( p.getCodigo()),2));
+                xml.write("\t  </CodigoComercial>\n");
+                xml.write(ForamtoXml("Cantidad",String.valueOf(1),1));
+                xml.write(ForamtoXml("UnidadMedida","Unid",2));
+
+
+
+                xml.write(ForamtoXml("Detalle",p.getDescripcionProducto(),1));
+                xml.write(ForamtoXml("PrecioUnitario",Double.toString(p.getPrecio()),1));
+                xml.write(ForamtoXml("MontoTotal",Double.toString(p.getPrecio()),2));
+                xml.write("\t  <Impuesto>\n");
+                xml.write(ForamtoXml("Tarifa",String.valueOf(13),2));
+
                 Double canimpuesto = 13.0;
-                Impuesto.addContent(tarifa);
-                
-                Element montoimpuesto = new Element("Monto").setText(Double.toString(canimpuesto * p.getPrecio()));
-                Impuesto.addContent(montoimpuesto);
-                
-                lineaDetalle.addContent(Impuesto);
-                Element montoTotalLinea = new Element("MontoTotalLinea").setText(Double.toString((canimpuesto * p.getPrecio()) + p.getPrecio()));
-                lineaDetalle.addContent(montoTotalLinea);
-                
-                detalleServicio.addContent(lineaDetalle);
-                
-            } 
-            
-            root.addContent(detalleServicio);
-            
-            writer = new FileWriter("FacturaEletronica"+codigo+".xml");
-            XMLOutputter outputter = new XMLOutputter();
-            outputter.setFormat(Format.getPrettyFormat());
-            outputter.output(document, new FileOutputStream("C:\\file.xml"));
-            writer.close();
+                xml.write(ForamtoXml("Monto",Double.toString(canimpuesto * p.getPrecio()),2));
+                xml.write("\t  </Impuesto>\n");
+                xml.write(ForamtoXml("MontoTotalLinea",Double.toString((canimpuesto * p.getPrecio()) + p.getPrecio()),1));
+
+            }
+            xml.write("\t  </LineaDetalle>\n");  
+            xml.write("\t  </DetalleServicio>\n"); 
+
+            xml.close();
              
         }
-        catch(Exception e){}
+        catch(Exception e){
+        }
 
         
     }

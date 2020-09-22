@@ -10,6 +10,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import logic.Empresa;
 import sistema.errors.DataException;
@@ -250,11 +251,17 @@ public class ViewEmpresa extends javax.swing.JFrame implements Observer{
             Empresa empresa = new Empresa(nomEmp,dirEmp,tel,ID,pagweb);
             this.control.addEmpresa(empresa);
             
+            JOptionPane message_window = new JOptionPane();
+            message_window.showMessageDialog(this, "Datos actualizados, actualice la ventana", "Alert: ", JOptionPane.INFORMATION_MESSAGE);
+            message_window.setVisible(true);
+            
             txtNomEmpresa.setText(" ");
             txtDireccion.setText(" ");
             txtCedJurid.setText(" ");
             txtDirPagWeb.setText(" ");
             txtNumTel.setText(" ");
+            
+            
         }
         catch(EmptySpaceExcep e){
             e.infoError("Error",e,this);
