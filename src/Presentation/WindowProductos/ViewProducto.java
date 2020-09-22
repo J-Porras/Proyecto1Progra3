@@ -7,6 +7,7 @@ package Presentation.WindowProductos;
 
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.JOptionPane;
 import logic.Producto;
 import sistema.errors.DataException;
 import sistema.errors.EmptySpaceExcep;
@@ -232,6 +233,9 @@ public class ViewProducto extends javax.swing.JFrame implements Observer {
             Producto p = new Producto(descripcion,precio);
 
             this.controller.addProducto(p);
+            
+            JOptionPane message_window = new JOptionPane();
+            message_window.showMessageDialog(this, "Producto agregado", "Alert: ", JOptionPane.INFORMATION_MESSAGE);
             txtNombre.setText(null);
             txtPrecio.setText(null);
             
